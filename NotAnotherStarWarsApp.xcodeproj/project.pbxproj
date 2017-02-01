@@ -19,6 +19,7 @@
 		AB8302801E4252F2004C3552 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB83027F1E4252F2004C3552 /* AppManager.swift */; };
 		AB8302821E425436004C3552 /* AppManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302811E425436004C3552 /* AppManagerTests.swift */; };
 		AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302841E4257BA004C3552 /* BaseViewController.swift */; };
+		AB8302871E42588C004C3552 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302861E42588C004C3552 /* AppDelegateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AB83027F1E4252F2004C3552 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		AB8302811E425436004C3552 /* AppManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManagerTests.swift; sourceTree = "<group>"; };
 		AB8302841E4257BA004C3552 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AB8302861E42588C004C3552 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		AB8302441E424F89004C3552 /* NotAnotherStarWarsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB8302861E42588C004C3552 /* AppDelegateTests.swift */,
 				AB8302811E425436004C3552 /* AppManagerTests.swift */,
 				AB8302471E424F89004C3552 /* Info.plist */,
 			);
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8302871E42588C004C3552 /* AppDelegateTests.swift in Sources */,
 				AB8302821E425436004C3552 /* AppManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
