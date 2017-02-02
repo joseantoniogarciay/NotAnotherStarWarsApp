@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  HomeController.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 1/2/17.
@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Reusable
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, StoryboardSceneBased {
+    
+    static var storyboard = UIStoryboard(name: "Home", bundle: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.pushViewController(PeopleDetailController.instantiate(), animated: true)
     }
 
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		590BD9DCA48BE3D7E4D6099A /* Pods_NotAnotherStarWarsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */; };
 		88B037DCACD656D3B1D967E6 /* Pods_NotAnotherStarWarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */; };
+		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
+		AB482E881E43A4010003E085 /* PeopleDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E821E43A4010003E085 /* PeopleDetailInteractor.swift */; };
+		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
+		AB482E8A1E43A4010003E085 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB482E861E43A4010003E085 /* People.storyboard */; };
 		AB8302511E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302501E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift */; };
 		AB83026B1E425116004C3552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB83025F1E425116004C3552 /* Assets.xcassets */; };
 		AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302661E425116004C3552 /* AppDelegate.swift */; };
@@ -46,6 +50,10 @@
 		0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F94DB5382A67962563AFF39 /* Pods-NotAnotherStarWarsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
+		AB482E821E43A4010003E085 /* PeopleDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailInteractor.swift; sourceTree = "<group>"; };
+		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
+		AB482E861E43A4010003E085 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		AB83022D1E424F89004C3552 /* NotAnotherStarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotAnotherStarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8302411E424F89004C3552 /* NotAnotherStarWarsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotAnotherStarWarsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8302471E424F89004C3552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +129,49 @@
 				F294A582C8A23108AC598E06 /* Pods_NotAnotherStarWarsAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB482E7E1E43A34C0003E085 /* PeopleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AB482E7F1E43A4010003E085 /* Controllers */,
+				AB482E831E43A4010003E085 /* Presenters */,
+				AB482E811E43A4010003E085 /* Interactors */,
+				AB482E851E43A4010003E085 /* UI */,
+			);
+			path = PeopleDetail;
+			sourceTree = "<group>";
+		};
+		AB482E7F1E43A4010003E085 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB482E811E43A4010003E085 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				AB482E821E43A4010003E085 /* PeopleDetailInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		AB482E831E43A4010003E085 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		AB482E851E43A4010003E085 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AB482E861E43A4010003E085 /* People.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		AB8302241E424F89004C3552 = {
@@ -205,6 +256,7 @@
 			children = (
 				AB8302631E425116004C3552 /* Base */,
 				AB8302641E425116004C3552 /* Home */,
+				AB482E7E1E43A34C0003E085 /* PeopleDetail */,
 			);
 			path = VPI;
 			sourceTree = "<group>";
@@ -407,6 +459,7 @@
 			files = (
 				AB83026E1E425116004C3552 /* LaunchScreen.storyboard in Resources */,
 				AB83026D1E425116004C3552 /* Info.plist in Resources */,
+				AB482E8A1E43A4010003E085 /* People.storyboard in Resources */,
 				AB83026B1E425116004C3552 /* Assets.xcassets in Resources */,
 				AB83027A1E42525E004C3552 /* Home.storyboard in Resources */,
 			);
@@ -571,10 +624,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
+				AB482E881E43A4010003E085 /* PeopleDetailInteractor.swift in Sources */,
 				AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */,
 				AB8302791E42525E004C3552 /* HomeViewController.swift in Sources */,
+				AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */,
 				AB83027E1E42529E004C3552 /* HomeInteractor.swift in Sources */,
 				AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */,
 			);
@@ -831,6 +887,7 @@
 				AB8302571E424F8A004C3552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB8302581E424F8A004C3552 /* Build configuration list for PBXNativeTarget "NotAnotherStarWarsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -839,6 +896,7 @@
 				AB83025A1E424F8A004C3552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB83025B1E424F8A004C3552 /* Build configuration list for PBXNativeTarget "NotAnotherStarWarsAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -847,6 +905,7 @@
 				AB83025D1E424F8A004C3552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
