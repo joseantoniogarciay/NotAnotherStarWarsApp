@@ -9,6 +9,24 @@
 /* Begin PBXBuildFile section */
 		590BD9DCA48BE3D7E4D6099A /* Pods_NotAnotherStarWarsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */; };
 		88B037DCACD656D3B1D967E6 /* Pods_NotAnotherStarWarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */; };
+		AB4440051E44953A00193697 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFA1E44953A00193697 /* Net.swift */; };
+		AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */; };
+		AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFD1E44953A00193697 /* NetAlamoFire.swift */; };
+		AB4440081E44953A00193697 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFF1E44953A00193697 /* Api.swift */; };
+		AB4440091E44953A00193697 /* NetSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440001E44953A00193697 /* NetSupport.swift */; };
+		AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440011E44953A00193697 /* RequestGenerator.swift */; };
+		AB44400B1E44953A00193697 /* NetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440021E44953A00193697 /* NetError.swift */; };
+		AB44400C1E44953A00193697 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440031E44953A00193697 /* NetworkResponse.swift */; };
+		AB44400D1E44953A00193697 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440041E44953A00193697 /* Request.swift */; };
+		AB44400F1E4498F800193697 /* NetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB44400E1E4498F800193697 /* NetApi.swift */; };
+		AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440131E449BA600193697 /* PeopleProtocol.swift */; };
+		AB44401C1E449BA600193697 /* PeopleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440141E449BA600193697 /* PeopleError.swift */; };
+		AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440171E449BA600193697 /* PeopleDataRecover.swift */; };
+		AB44401F1E449BA600193697 /* PeopleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440191E449BA600193697 /* PeopleParser.swift */; };
+		AB4440201E449BA600193697 /* PeopleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB44401A1E449BA600193697 /* PeopleEngine.swift */; };
+		AB4440241E449C2F00193697 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440231E449C2F00193697 /* People.swift */; };
+		AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440261E449F4F00193697 /* PagePeopleNet.swift */; };
+		AB4440291E449F4F00193697 /* PeopleNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440271E449F4F00193697 /* PeopleNet.swift */; };
 		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
 		AB482E881E43A4010003E085 /* PeopleDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E821E43A4010003E085 /* PeopleDetailInteractor.swift */; };
 		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
@@ -16,7 +34,6 @@
 		AB8302511E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302501E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift */; };
 		AB83026B1E425116004C3552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB83025F1E425116004C3552 /* Assets.xcassets */; };
 		AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302661E425116004C3552 /* AppDelegate.swift */; };
-		AB83026D1E425116004C3552 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB8302671E425116004C3552 /* Info.plist */; };
 		AB83026E1E425116004C3552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8302691E425116004C3552 /* LaunchScreen.storyboard */; };
 		AB8302791E42525E004C3552 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302741E42525E004C3552 /* HomeViewController.swift */; };
 		AB83027A1E42525E004C3552 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8302781E42525E004C3552 /* Home.storyboard */; };
@@ -50,6 +67,24 @@
 		0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F94DB5382A67962563AFF39 /* Pods-NotAnotherStarWarsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB443FFA1E44953A00193697 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
+		AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoFireAdapter.swift; sourceTree = "<group>"; };
+		AB443FFD1E44953A00193697 /* NetAlamoFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetAlamoFire.swift; sourceTree = "<group>"; };
+		AB443FFF1E44953A00193697 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		AB4440001E44953A00193697 /* NetSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetSupport.swift; sourceTree = "<group>"; };
+		AB4440011E44953A00193697 /* RequestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
+		AB4440021E44953A00193697 /* NetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetError.swift; sourceTree = "<group>"; };
+		AB4440031E44953A00193697 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		AB4440041E44953A00193697 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AB44400E1E4498F800193697 /* NetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetApi.swift; sourceTree = "<group>"; };
+		AB4440131E449BA600193697 /* PeopleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleProtocol.swift; sourceTree = "<group>"; };
+		AB4440141E449BA600193697 /* PeopleError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleError.swift; sourceTree = "<group>"; };
+		AB4440171E449BA600193697 /* PeopleDataRecover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDataRecover.swift; sourceTree = "<group>"; };
+		AB4440191E449BA600193697 /* PeopleParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleParser.swift; sourceTree = "<group>"; };
+		AB44401A1E449BA600193697 /* PeopleEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleEngine.swift; sourceTree = "<group>"; };
+		AB4440231E449C2F00193697 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		AB4440261E449F4F00193697 /* PagePeopleNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePeopleNet.swift; sourceTree = "<group>"; };
+		AB4440271E449F4F00193697 /* PeopleNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleNet.swift; sourceTree = "<group>"; };
 		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
 		AB482E821E43A4010003E085 /* PeopleDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailInteractor.swift; sourceTree = "<group>"; };
 		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
@@ -129,6 +164,109 @@
 				F294A582C8A23108AC598E06 /* Pods_NotAnotherStarWarsAppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB443FF91E44953A00193697 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				AB443FFA1E44953A00193697 /* Net.swift */,
+				AB443FFB1E44953A00193697 /* NetAlamoFire */,
+				AB443FFE1E44953A00193697 /* NetDirectory */,
+				AB4440021E44953A00193697 /* NetError.swift */,
+				AB4440031E44953A00193697 /* NetworkResponse.swift */,
+				AB4440041E44953A00193697 /* Request.swift */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		AB443FFB1E44953A00193697 /* NetAlamoFire */ = {
+			isa = PBXGroup;
+			children = (
+				AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */,
+				AB443FFD1E44953A00193697 /* NetAlamoFire.swift */,
+			);
+			path = NetAlamoFire;
+			sourceTree = "<group>";
+		};
+		AB443FFE1E44953A00193697 /* NetDirectory */ = {
+			isa = PBXGroup;
+			children = (
+				AB443FFF1E44953A00193697 /* Api.swift */,
+				AB44400E1E4498F800193697 /* NetApi.swift */,
+				AB4440001E44953A00193697 /* NetSupport.swift */,
+				AB4440011E44953A00193697 /* RequestGenerator.swift */,
+			);
+			path = NetDirectory;
+			sourceTree = "<group>";
+		};
+		AB4440101E449BA600193697 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440111E449BA600193697 /* People */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AB4440111E449BA600193697 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440121E449BA600193697 /* Contract */,
+				AB4440151E449BA600193697 /* Implementation */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		AB4440121E449BA600193697 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440131E449BA600193697 /* PeopleProtocol.swift */,
+				AB4440141E449BA600193697 /* PeopleError.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		AB4440151E449BA600193697 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440161E449BA600193697 /* Net */,
+				AB44401A1E449BA600193697 /* PeopleEngine.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		AB4440161E449BA600193697 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440251E449F4F00193697 /* Models */,
+				AB4440171E449BA600193697 /* PeopleDataRecover.swift */,
+				AB4440191E449BA600193697 /* PeopleParser.swift */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		AB4440211E449BED00193697 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440221E449C2F00193697 /* People */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AB4440221E449C2F00193697 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440231E449C2F00193697 /* People.swift */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		AB4440251E449F4F00193697 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB4440261E449F4F00193697 /* PagePeopleNet.swift */,
+				AB4440271E449F4F00193697 /* PeopleNet.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AB482E7E1E43A34C0003E085 /* PeopleDetail */ = {
@@ -237,6 +375,9 @@
 		AB8302601E425116004C3552 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB4440101E449BA600193697 /* Core */,
+				AB4440211E449BED00193697 /* Domain */,
+				AB443FF91E44953A00193697 /* Net */,
 				AB8302611E425116004C3552 /* Managers */,
 				AB8302621E425116004C3552 /* VPI */,
 			);
@@ -458,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB83026E1E425116004C3552 /* LaunchScreen.storyboard in Resources */,
-				AB83026D1E425116004C3552 /* Info.plist in Resources */,
 				AB482E8A1E43A4010003E085 /* People.storyboard in Resources */,
 				AB83026B1E425116004C3552 /* Assets.xcassets in Resources */,
 				AB83027A1E42525E004C3552 /* Home.storyboard in Resources */,
@@ -625,14 +765,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */,
+				AB4440091E44953A00193697 /* NetSupport.swift in Sources */,
+				AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */,
+				AB4440051E44953A00193697 /* Net.swift in Sources */,
+				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
+				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
+				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
+				AB44400D1E44953A00193697 /* Request.swift in Sources */,
+				AB4440081E44953A00193697 /* Api.swift in Sources */,
+				AB4440241E449C2F00193697 /* People.swift in Sources */,
+				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
 				AB482E881E43A4010003E085 /* PeopleDetailInteractor.swift in Sources */,
+				AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */,
+				AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */,
+				AB44401F1E449BA600193697 /* PeopleParser.swift in Sources */,
+				AB4440201E449BA600193697 /* PeopleEngine.swift in Sources */,
+				AB44400B1E44953A00193697 /* NetError.swift in Sources */,
 				AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */,
+				AB44401C1E449BA600193697 /* PeopleError.swift in Sources */,
+				AB44400C1E44953A00193697 /* NetworkResponse.swift in Sources */,
 				AB8302791E42525E004C3552 /* HomeViewController.swift in Sources */,
 				AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */,
 				AB83027E1E42529E004C3552 /* HomeInteractor.swift in Sources */,
 				AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */,
+				AB4440291E449F4F00193697 /* PeopleNet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
