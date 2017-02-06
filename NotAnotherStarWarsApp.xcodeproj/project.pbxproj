@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		590BD9DCA48BE3D7E4D6099A /* Pods_NotAnotherStarWarsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */; };
 		88B037DCACD656D3B1D967E6 /* Pods_NotAnotherStarWarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */; };
+		AB2251181E4889F200EDA5D2 /* TransformableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */; };
+		AB22511A1E488A7100EDA5D2 /* PeopleTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251191E488A7100EDA5D2 /* PeopleTransformer.swift */; };
+		AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */; };
 		AB4440051E44953A00193697 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFA1E44953A00193697 /* Net.swift */; };
 		AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */; };
 		AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFD1E44953A00193697 /* NetAlamoFire.swift */; };
@@ -67,6 +70,9 @@
 		0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F94DB5382A67962563AFF39 /* Pods-NotAnotherStarWarsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformableProtocol.swift; sourceTree = "<group>"; };
+		AB2251191E488A7100EDA5D2 /* PeopleTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTransformer.swift; sourceTree = "<group>"; };
+		AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		AB443FFA1E44953A00193697 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoFireAdapter.swift; sourceTree = "<group>"; };
 		AB443FFD1E44953A00193697 /* NetAlamoFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetAlamoFire.swift; sourceTree = "<group>"; };
@@ -166,6 +172,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AB2251161E4889F200EDA5D2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AB22511B1E48A7C300EDA5D2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		AB443FF91E44953A00193697 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +224,7 @@
 		AB4440101E449BA600193697 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AB2251161E4889F200EDA5D2 /* Common */,
 				AB4440111E449BA600193697 /* People */,
 			);
 			path = Core;
@@ -239,6 +262,7 @@
 			children = (
 				AB4440251E449F4F00193697 /* Models */,
 				AB4440171E449BA600193697 /* PeopleDataRecover.swift */,
+				AB2251191E488A7100EDA5D2 /* PeopleTransformer.swift */,
 				AB4440191E449BA600193697 /* PeopleParser.swift */,
 			);
 			path = Net;
@@ -375,6 +399,7 @@
 		AB8302601E425116004C3552 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB22511B1E48A7C300EDA5D2 /* Common */,
 				AB4440101E449BA600193697 /* Core */,
 				AB4440211E449BED00193697 /* Domain */,
 				AB443FF91E44953A00193697 /* Net */,
@@ -772,11 +797,14 @@
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
 				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
+				AB2251181E4889F200EDA5D2 /* TransformableProtocol.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
 				AB4440081E44953A00193697 /* Api.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
 				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
+				AB22511A1E488A7100EDA5D2 /* PeopleTransformer.swift in Sources */,
+				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
 				AB482E881E43A4010003E085 /* PeopleDetailInteractor.swift in Sources */,
 				AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */,
 				AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */,

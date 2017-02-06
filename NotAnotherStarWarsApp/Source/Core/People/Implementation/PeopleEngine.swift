@@ -10,20 +10,14 @@ import Foundation
 
 class PeopleEngine : PeopleProtocol {
     
-    fileprivate let peopleDataRecover: PeopleDataRecover
+    private let peopleDataRecover: PeopleDataRecover
     
     init(peopleDataRecover: PeopleDataRecover) {
         self.peopleDataRecover = peopleDataRecover
     }
     
     func getPeople() throws -> [People] {
-        do {
-            return try peopleDataRecover.getPeople()
-        } catch NetError.error(let code, let message){
-            throw PeopleError.error(statusErrorCode: code, errorMessage: message)
-        }
+        return try peopleDataRecover.getPeople()
     }
-    
-    
     
 }

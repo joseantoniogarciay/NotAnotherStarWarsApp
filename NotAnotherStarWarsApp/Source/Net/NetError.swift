@@ -10,7 +10,7 @@ import Foundation
 
 enum NetError : Error {
     case error(statusErrorCode: Int, errorMessage: String)
-    case nullResponse
     case emptyResponse
     case mappingError
+    case nullResponse
 }

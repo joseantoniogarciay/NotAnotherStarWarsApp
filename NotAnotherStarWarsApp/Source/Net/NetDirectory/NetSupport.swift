@@ -33,14 +33,9 @@ class NetSupport {
         return mappedObj
     }
     
-    internal func netRequest(_ request: Request) throws -> String {
-        do {
-            let netResponse = try net.launchRequest(request)
-            return netResponse!.message
-        } catch NetError.error(let statusCode, let message) {
-            throw NetError.error(statusErrorCode: statusCode, errorMessage: message)
-        } catch {
-            throw NetError.error(statusErrorCode: 520, errorMessage: "Unknown")
-        }
+    private func netRequest(_ request: Request) throws -> String {
+        let netResponse = try net.launchRequest(request)
+        return netResponse!.message
     }
+    
 }

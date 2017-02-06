@@ -9,5 +9,6 @@
 import Foundation
 
 enum PeopleError : Error {
-    case error(statusErrorCode: Int, errorMessage: String)
+    case net
+    case nullResponse
 }

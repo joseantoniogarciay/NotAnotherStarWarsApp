@@ -18,15 +18,19 @@ class PeopleDataRecover {
     
     func getPeople() throws -> [People] {
         let methodUrl = String(format: netSupport.api.PEOPLE)
-        let dicHeader = ["Content-Type" : "application/json" , "Accept" : "application/json"]
+        let dicHeader = ["Accept" : "application/json"]
         
         let request = netSupport.getRequestGenerator()
             .method(.get).setUrl(methodUrl)
             .setRequestHeader(dicHeader)
             .build()
         
-        let response: PagePeopleNet = try netSupport.netJsonMappableRequest(request)
-        return try PeopleParser.parsePagePeople(response)
+        do {
+            let response: PagePeopleNet = try netSupport.netJsonMappableRequest(request)
+            return try PeopleParser.parsePagePeople(response)
+        } catch is NetError {
+            throw PeopleError.net
+        }
     }
     
 }
