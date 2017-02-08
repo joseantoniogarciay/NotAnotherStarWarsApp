@@ -8,11 +8,19 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+protocol DependencyInjectionProtocol {
+    func dependencyInjection()
+}
+
+class BaseViewController: UIViewController, DependencyInjectionProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        dependencyInjection()
+    }
+    
+    func dependencyInjection() {
+        
     }
     
 }

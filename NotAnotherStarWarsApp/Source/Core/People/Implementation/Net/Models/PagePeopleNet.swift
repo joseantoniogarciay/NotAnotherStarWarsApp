@@ -20,13 +20,13 @@ class PagePeopleNet : Mappable {
         count = try? map.value("count")
         next = try? map.value("next")
         previous = try? map.value("previous")
-        arrayPeople = try? map.value("arrayPeople")
+        arrayPeople = try? map.value("results")
     }
     
     func mapping(map: Map) {
         count >>> map["count"]
         next >>> map["next"]
         previous >>> map["previous"]
-        arrayPeople >>> map["arrayPeople"]
+        arrayPeople >>> map["results"]
     }
 }

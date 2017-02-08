@@ -7,7 +7,19 @@
 //
 
 import UIKit
+import PromiseKit
 
 class HomeInteractor {
+    
+    func getPeople() -> Promise<[People]> {
+        return Promise { fulfill, reject in
+            do {
+                let arrayPeople = try DependencyProvider.people.getPeople()
+                fulfill(arrayPeople)
+            } catch let error as PeopleError {
+                reject(error)
+            }
+        }
+    }
 
 }

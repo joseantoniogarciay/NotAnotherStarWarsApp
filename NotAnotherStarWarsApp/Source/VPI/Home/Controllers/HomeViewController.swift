@@ -12,10 +12,27 @@ import Reusable
 class HomeViewController: BaseViewController, StoryboardSceneBased {
     
     static var storyboard = UIStoryboard(name: "Home", bundle: nil)
+    var presenter : HomePresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.pushViewController(PeopleDetailController.instantiate(), animated: true)
+        presenter?.viewLoaded()
+    }
+    
+    override func dependencyInjection() {
+        presenter = HomePresenter(homeVC: self)
     }
 
 }
+
+
+// MARK: HomePresenter Communication
+extension HomeViewController {
+    
+    func updatePeople(arrayPeople: [People]) {
+        
+    }
+    
+}
+
