@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Hydra
 
-class HomePresenter {
+protocol HomePresenterProtocol {
+    weak var homeVC : HomeViewController? { get set }
+    init(homeVC : HomeViewController)
+    func viewLoaded()
+    func wayToPersonDetail(_ peopleDetailVC: PeopleDetailViewController)
+}
+
+class HomePresenter : HomePresenterProtocol {
     
     weak var homeVC : HomeViewController?
-    var homeInteractor = HomeInteractor()
+    var peopleInteractor = PeopleInteractor()
     
     required init(homeVC : HomeViewController) {
         self.homeVC = homeVC
@@ -21,16 +29,18 @@ class HomePresenter {
         getPeople()
     }
     
-    private func getPeople() {
-        DispatchQueue.global().async {
-            self.homeInteractor.getPeople()
-            .then(on: DispatchQueue.main) { [weak self] arrayPeople in
-                self?.homeVC?.updatePeople(arrayPeople: arrayPeople)
-            }
-            .catch(execute:{ (error) in
-                    
-            })
+    func wayToPersonDetail(_ peopleDetailVC: PeopleDetailViewController) {
+        print(self.peopleInteractor.je())
+    }
+    
+    func getPeople() {
+        self.peopleInteractor.getPeople()
+        .then(in: .main) { [weak self] arrayPeople in
+            self?.homeVC?.updatePeople(arrayPeople: arrayPeople)
         }
+        .catch(in: .main, { (error) in
+                
+        })
     }
 
 }

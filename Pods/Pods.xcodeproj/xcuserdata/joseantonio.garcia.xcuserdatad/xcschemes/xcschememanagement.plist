@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HydraAsync.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,11 +35,6 @@
 			<false/>
 		</dict>
 		<key>Pods-NotAnotherStarWarsAppUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PromiseKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,12 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>363A25F063440ACCD29EF1B2EDD2F062</key>
+		<key>3B1B2716C219D25B5E7039E9985733AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B1B2716C219D25B5E7039E9985733AD</key>
+		<key>41EE7081FC8925CB76371A767C4B8FEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>80A5B28CB4109885AB229ABA507AD3C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C5CC4CDFE0B0BBEECCC0D36C5F75D71</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>96CAD3AB4E790ECDCD6EE2E1AA6D6DF1</key>
+		<key>92C78C3439E2E3ADFDB7A0A4980570F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EBE460D3E3A3CF1AFBBDFA387940E5E7</key>
+		<key>E596064EF4CF2C5DEF4A53A1AF3A8705</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE883E63609CFD05B8C5E0BABA0AEB3E</key>
+		<key>EBE460D3E3A3CF1AFBBDFA387940E5E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

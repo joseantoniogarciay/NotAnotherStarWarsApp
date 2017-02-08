@@ -9,12 +9,24 @@
 import UIKit
 import Reusable
 
-class PeopleDetailController: BaseViewController, StoryboardSceneBased {
+class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     
     static var storyboard = UIStoryboard(name: "People", bundle: nil)
-
+    var presenter: PeopleDetailPresenterProtocol?
+    
+    var person: People?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewLoaded()
+    }
+    
+    override func dependencyInjection() {
+        presenter = PeopleDetailPresenter(peopleDetailVC: self)
+    }
+    
+    override func configView() {
+        navigationController?.navigationBar.backItem?.title = ""
     }
 
 }

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--People Detail Controller-->
+        <!--People Detail View Controller-->
         <scene sceneID="aEi-K0-adg">
             <objects>
-                <viewController storyboardIdentifier="PeopleDetailController" id="MT4-kb-x2b" customClass="PeopleDetailController" customModule="NotAnotherStarWarsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PeopleDetailViewController" id="MT4-kb-x2b" customClass="PeopleDetailViewController" customModule="NotAnotherStarWarsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ubm-UU-8UH"/>
                         <viewControllerLayoutGuide type="bottom" id="8r7-4j-HYJ"/>

@@ -17,9 +17,14 @@ class BaseViewController: UIViewController, DependencyInjectionProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         dependencyInjection()
+        configView()
     }
     
     func dependencyInjection() {
+        
+    }
+    
+    func configView() {
         
     }
     

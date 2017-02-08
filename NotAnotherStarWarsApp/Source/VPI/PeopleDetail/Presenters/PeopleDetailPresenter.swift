@@ -8,6 +8,22 @@
 
 import UIKit
 
-class PeopleDetailPresenter {
+protocol PeopleDetailPresenterProtocol {
+    weak var peopleDetailVC: PeopleDetailViewController? { get set }
+    init(peopleDetailVC: PeopleDetailViewController)
+    func viewLoaded()
+}
+
+class PeopleDetailPresenter: PeopleDetailPresenterProtocol {
+    
+    weak var peopleDetailVC : PeopleDetailViewController?
+    
+    required init(peopleDetailVC: PeopleDetailViewController) {
+        self.peopleDetailVC = peopleDetailVC
+    }
+    
+    func viewLoaded() {
+    
+    }
 
 }
