@@ -16,7 +16,7 @@ class PeopleEngine : PeopleProtocol {
         self.peopleDataRecover = peopleDataRecover
     }
     
-    func getPeople() throws -> [People] {
+    func getPeople() throws -> [Person] {
         return try peopleDataRecover.getPeople()
     }
     

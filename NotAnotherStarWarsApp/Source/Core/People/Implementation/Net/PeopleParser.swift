@@ -13,14 +13,14 @@ import Foundation
 class PeopleParser {
     
     // MARK: parsePagePeople
-    static func parsePagePeople(_ dependencies: PagePeopleNet) throws -> [People] {
+    static func parsePagePeople(_ dependencies: PagePeopleNet) throws -> [Person] {
         
         guard let arrayPeopleNet = dependencies.arrayPeople else {
             throw PeopleError.nullResponse
         }
         
-        let arrayPeople = arrayPeopleNet.map({ peopleNet -> People in
-            PeopleTransformer.transform(with: peopleNet)
+        let arrayPeople = arrayPeopleNet.map({ peopleNet -> Person in
+            PersonTransformer.transform(with: peopleNet)
         })
         return arrayPeople
     }

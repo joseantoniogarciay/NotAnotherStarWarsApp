@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PeopleProtocol {
-    func getPeople() throws -> [People]
+    func getPeople() throws -> [Person]
 }

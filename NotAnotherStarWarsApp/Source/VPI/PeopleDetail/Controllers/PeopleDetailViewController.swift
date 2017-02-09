@@ -14,7 +14,7 @@ class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     static var storyboard = UIStoryboard(name: "People", bundle: nil)
     var presenter: PeopleDetailPresenterProtocol?
     
-    var person: People?
+    var person: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()

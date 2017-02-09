@@ -11,34 +11,23 @@ import Hydra
 
 class PeopleInteractor {
     
-    func getPeople() -> Promise<[People]> {
+    func getPeople() -> Promise<[Person]> {
         return Promise { fulfill, reject in
             do {
-                let arrayPeople = try DependencyProvider.people.getPeople()
-                fulfill(arrayPeople)
+                let arrayPerson = try DependencyProvider.people.getPeople()
+                fulfill(arrayPerson)
             } catch let error as PeopleError {
                 reject(error)
             }
         }
     }
     
-    func getOtherInfoMock() -> Promise<String> {
-        return Promise { fulfill, reject in
-            do {
-                sleep(6)
-                let _ = try DependencyProvider.people.getPeople()
-                fulfill("moreInfo")
-            } catch let error as PeopleError {
-                reject(error)
-            }
-        }
-    }
     
-    func je() -> String {
-        do {
-            return try ..getOtherInfoMock()
-        } catch {
-            return ""
+    
+    func getDetailTitle() -> Promise<String> {
+        return Promise { fulfill, reject in
+            sleep(3)
+            fulfill("Detail")
         }
     }
 

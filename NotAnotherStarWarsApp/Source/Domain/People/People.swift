@@ -1,5 +1,5 @@
 //
-//  People.swift
+//  Person.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class People: NSObject {
+class Person: NSObject {
     let name: String
     let height: String?
     let mass: String?
@@ -39,8 +39,8 @@ class People: NSObject {
             return self
         }
         
-        func build() -> People {
-            return People(builder: self)
+        func build() -> Person {
+            return Person(builder: self)
         }
         
     }

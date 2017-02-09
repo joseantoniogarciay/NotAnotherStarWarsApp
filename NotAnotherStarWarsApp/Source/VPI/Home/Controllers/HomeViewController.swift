@@ -11,15 +11,12 @@ import Reusable
 
 class HomeViewController: BaseViewController, StoryboardSceneBased {
     
-    enum SegueIdentifier: String {
-        case PeopleDetail = "PeopleDetail"
-    }
-    
     static var storyboard = UIStoryboard(name: "Home", bundle: nil)
     var presenter : HomePresenterProtocol?
-    var arrayPeople : Array<People>?
+    var arrayPerson : Array<Person>?
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +28,14 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
     }
     
     override func configView() {
-        tableView.register(cellType: PeopleTableViewCell.self)
+        tableView.register(cellType: PersonTableViewCell.self)
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         automaticallyAdjustsScrollViewInsets = false
         title = "Star Wars People"
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
     }
 
 }
@@ -42,9 +44,18 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
 // MARK: HomePresenter Communication
 extension HomeViewController {
     
-    func updatePeople(arrayPeople: [People]) {
-        self.arrayPeople = arrayPeople
+    func updatePeople(_ arrayPerson: [Person]) {
+        tableViewActivityIndicator.stopAnimating()
+        self.arrayPerson = arrayPerson
         tableView.reloadData()
+    }
+    
+    func showLoadingForPerson(_ person: Person, show: Bool){
+        if let index = arrayPerson?.index(of: person) {
+            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PersonTableViewCell {
+                show ? cell.startLoading() : cell.stopLoading()
+            }
+        }
     }
     
 }
@@ -58,13 +69,17 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayPeople?.count ?? 0
+        return arrayPerson?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PeopleTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.updateWithPerson(arrayPeople![indexPath.item])
+        let cell: PersonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.updateWithPerson(arrayPerson![indexPath.item])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
 }
@@ -75,29 +90,7 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: SegueIdentifier.PeopleDetail.rawValue, sender: indexPath)
-    }
-    
-}
-
-// MARK: Segue
-
-extension HomeViewController {
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier ?? "" {
-        case SegueIdentifier.PeopleDetail.rawValue:
-            let backItem = UIBarButtonItem()
-            backItem.title = "Back"
-            navigationItem.backBarButtonItem = backItem
-            if let destinationVC = segue.destination as? PeopleDetailViewController, let indexPath = sender as? IndexPath {
-                destinationVC.person = arrayPeople![indexPath.item]
-                presenter?.wayToPersonDetail(destinationVC)
-            }
-            break
-        default:
-            break
-        }
+        presenter?.selectedPerson(arrayPerson![indexPath.item])
     }
     
 }

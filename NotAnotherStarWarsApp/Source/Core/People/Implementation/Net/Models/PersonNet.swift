@@ -1,5 +1,5 @@
 //
-//  PeopleNet.swift
+//  PersonNet.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct PeopleNet : Mappable {
+struct PersonNet : Mappable {
     
     let name: String
     let height: String?

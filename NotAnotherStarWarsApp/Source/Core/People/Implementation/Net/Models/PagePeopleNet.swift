@@ -9,14 +9,14 @@
 import Foundation
 import ObjectMapper
 
-class PagePeopleNet : Mappable {
+struct PagePeopleNet : Mappable {
     
     let count: String?
     let next: String?
     let previous: String?
-    let arrayPeople : [PeopleNet]?
+    let arrayPeople : [PersonNet]?
     
-    required init?(map: Map) {
+    init?(map: Map) {
         count = try? map.value("count")
         next = try? map.value("next")
         previous = try? map.value("previous")

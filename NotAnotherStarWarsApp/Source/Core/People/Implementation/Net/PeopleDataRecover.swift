@@ -16,7 +16,7 @@ class PeopleDataRecover {
         self.netSupport = netSupport
     }
     
-    func getPeople() throws -> [People] {
+    func getPeople() throws -> [Person] {
         let methodUrl = String(format: netSupport.api.PEOPLE)
         let dicHeader = ["Accept" : "application/json"]
         
