@@ -11,19 +11,23 @@ import XCTest
 
 class HomePresenterMock: HomePresenterProtocol {
     
-    weak var homeVC : HomeViewController?
+    weak var homeVC : HomeViewProtocol?
     
-    required init(homeVC : HomeViewController) {
+    required init(homeVC : HomeViewProtocol) {
         self.homeVC = homeVC
     }
     
     func viewLoaded() {
-        let people = People.Builder()
+        let people = Person.Builder()
             .setName("Django")
             .setHeight("2.10")
             .setMass("100")
             .build()
-        self.homeVC?.updatePeople(arrayPeople: [people])
+        self.homeVC?.updatePeople([people])
+    }
+    
+    func selectedPerson(_ person: Person) {
+        
     }
 
 }
@@ -51,12 +55,12 @@ class HomeViewControllerTests: XCTestCase {
     }
     
     func testUpdatePeople() {
-        let people = People.Builder()
+        let people = Person.Builder()
             .setName("Django")
             .setHeight("2.10")
             .setMass("100")
             .build()
-        homeVC.updatePeople(arrayPeople: [people])
+        homeVC.updatePeople([people])
         
     }
     

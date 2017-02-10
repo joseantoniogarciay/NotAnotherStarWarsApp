@@ -12,6 +12,8 @@ PODS:
   - XCTest-Gherkin (0.9.0):
     - XCTest-Gherkin/Core (= 0.9.0)
   - XCTest-Gherkin/Core (0.9.0)
+  - XCTest-Gherkin/Native (0.9.0):
+    - XCTest-Gherkin/Core
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -20,6 +22,7 @@ DEPENDENCIES:
   - ObjectMapper
   - Reusable
   - XCTest-Gherkin
+  - XCTest-Gherkin/Native
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -29,6 +32,6 @@ SPEC CHECKSUMS:
   Reusable: 5362d10271ca8316b104698a21e90498f47e8339
   XCTest-Gherkin: 1b4a3a1ee6e464f2223dea67fbea16bb58cf0c07
 
-PODFILE CHECKSUM: 700ebcb2f2273ffd970a4ec9e99cbba7742d2bf2
+PODFILE CHECKSUM: 3c3aa69b88440745148a2f81358d1c4dfb64eb2e
 
 COCOAPODS: 1.2.0.beta.3

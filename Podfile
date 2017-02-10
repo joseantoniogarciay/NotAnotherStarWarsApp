@@ -17,4 +17,5 @@ end
 
 target 'NotAnotherStarWarsAppUITests' do
    pod 'XCTest-Gherkin'
+   pod 'XCTest-Gherkin/Native'
 end
