@@ -10,19 +10,21 @@ import UIKit
 import Hydra
 
 protocol HomePresenterProtocol {
-    weak var homeVC : HomeViewController? { get set }
-    init(homeVC : HomeViewController)
+    weak var homeVC : HomeViewProtocol? { get set }
+    init(homeVC : HomeViewProtocol)
     func viewLoaded()
     func selectedPerson(_ person: Person)
 }
 
+// MARK: HomePresenterProtocol
+
 class HomePresenter : HomePresenterProtocol {
     
-    weak var homeVC : HomeViewController?
+    weak var homeVC : HomeViewProtocol?
     var peopleInteractor = PeopleInteractor()
     var pushingVC = false
     
-    required init(homeVC : HomeViewController) {
+    required init(homeVC : HomeViewProtocol) {
         self.homeVC = homeVC
     }
     
@@ -56,7 +58,7 @@ extension HomePresenter {
         .then(in: .main) { [weak self] text in
             peopleDetailVC.title = text
             self?.homeVC?.showLoadingForPerson(person, show: false)
-            self?.homeVC?.navigationController?.pushViewController(peopleDetailVC, animated: true)
+            NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
             self?.pushingVC = false
         }
     }

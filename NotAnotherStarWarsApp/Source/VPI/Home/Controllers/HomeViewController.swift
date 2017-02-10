@@ -9,6 +9,12 @@
 import UIKit
 import Reusable
 
+protocol HomeViewProtocol: class {
+    func updatePeople(_ arrayPerson: [Person])
+    func showLoadingForPerson(_ person: Person, show: Bool)
+}
+
+
 class HomeViewController: BaseViewController, StoryboardSceneBased {
     
     static var storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -25,6 +31,7 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
     
     override func dependencyInjection() {
         presenter = HomePresenter(homeVC: self)
+        NavigationManager.shared.setNavigationController(self.navigationController)
     }
     
     override func configView() {
@@ -34,15 +41,15 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
         automaticallyAdjustsScrollViewInsets = false
         title = "Star Wars People"
         let backItem = UIBarButtonItem()
-        backItem.title = "Back"
+        backItem.title = .Home_Back
         navigationItem.backBarButtonItem = backItem
     }
 
 }
 
 
-// MARK: HomePresenter Communication
-extension HomeViewController {
+// MARK: HomeViewProtocol
+extension HomeViewController : HomeViewProtocol {
     
     func updatePeople(_ arrayPerson: [Person]) {
         tableViewActivityIndicator.stopAnimating()
@@ -50,7 +57,7 @@ extension HomeViewController {
         tableView.reloadData()
     }
     
-    func showLoadingForPerson(_ person: Person, show: Bool){
+    func showLoadingForPerson(_ person: Person, show: Bool) {
         if let index = arrayPerson?.index(of: person) {
             if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PersonTableViewCell {
                 show ? cell.startLoading() : cell.stopLoading()

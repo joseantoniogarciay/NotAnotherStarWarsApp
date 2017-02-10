@@ -26,7 +26,7 @@ class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     }
     
     override func configView() {
-        navigationController?.navigationBar.backItem?.title = ""
+        
     }
 
 }

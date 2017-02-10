@@ -33,6 +33,9 @@
 		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
 		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
 		AB482E8A1E43A4010003E085 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB482E861E43A4010003E085 /* People.storyboard */; };
+		AB7F581D1E4DC7F900144DD6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB7F581F1E4DC7F900144DD6 /* Localizable.strings */; };
+		AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7F58211E4DC8DA00144DD6 /* HomeLocalizable.swift */; };
+		AB7F58241E4DCB7300144DD6 /* BaseLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7F58231E4DCB7300144DD6 /* BaseLocalizable.swift */; };
 		AB8302511E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302501E424F8A004C3552 /* NotAnotherStarWarsAppUITests.swift */; };
 		AB83026B1E425116004C3552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB83025F1E425116004C3552 /* Assets.xcassets */; };
 		AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302661E425116004C3552 /* AppDelegate.swift */; };
@@ -48,6 +51,7 @@
 		AB924BE31E4B3A2F009781FF /* PeopleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */; };
 		AB924BE91E4B3C1E009781FF /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE71E4B3C1E009781FF /* PersonTableViewCell.swift */; };
 		AB924BEA1E4B3C1E009781FF /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB924BE81E4B3C1E009781FF /* PersonTableViewCell.xib */; };
+		ABFE4B2A1E4DBA660073BDDA /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE4B291E4DBA660073BDDA /* NavigationManager.swift */; };
 		C42C5480159D2776C38E8291 /* Pods_NotAnotherStarWarsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F294A582C8A23108AC598E06 /* Pods_NotAnotherStarWarsAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +100,10 @@
 		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
 		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
 		AB482E861E43A4010003E085 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
+		AB7F581E1E4DC7F900144DD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB7F58201E4DC80E00144DD6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB7F58211E4DC8DA00144DD6 /* HomeLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLocalizable.swift; sourceTree = "<group>"; };
+		AB7F58231E4DCB7300144DD6 /* BaseLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLocalizable.swift; sourceTree = "<group>"; };
 		AB83022D1E424F89004C3552 /* NotAnotherStarWarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotAnotherStarWarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8302411E424F89004C3552 /* NotAnotherStarWarsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotAnotherStarWarsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8302471E424F89004C3552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 		AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleInteractor.swift; sourceTree = "<group>"; };
 		AB924BE71E4B3C1E009781FF /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		AB924BE81E4B3C1E009781FF /* PersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		ABFE4B291E4DBA660073BDDA /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		CEA8F4ACA7F1C77CF9E20101 /* Pods-NotAnotherStarWarsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppUITests/Pods-NotAnotherStarWarsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6931B2CA54C29897E8FEFF0 /* Pods-NotAnotherStarWarsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D84EE19978DCA2C23D05EC97 /* Pods-NotAnotherStarWarsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsApp/Pods-NotAnotherStarWarsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -331,6 +340,17 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		AB7F581A1E4DC7DE00144DD6 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				AB7F581F1E4DC7F900144DD6 /* Localizable.strings */,
+				AB7F58231E4DCB7300144DD6 /* BaseLocalizable.swift */,
+				AB7F58211E4DC8DA00144DD6 /* HomeLocalizable.swift */,
+			);
+			name = Localizable;
+			path = Localized;
+			sourceTree = "<group>";
+		};
 		AB8302241E424F89004C3552 = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +376,7 @@
 		AB83022F1E424F89004C3552 /* NotAnotherStarWarsApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB7F581A1E4DC7DE00144DD6 /* Localizable */,
 				AB8302601E425116004C3552 /* Source */,
 				AB83025E1E425116004C3552 /* Resources */,
 				AB8302651E425116004C3552 /* Support */,
@@ -408,6 +429,7 @@
 		AB8302611E425116004C3552 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				ABFE4B291E4DBA660073BDDA /* NavigationManager.swift */,
 				AB83027F1E4252F2004C3552 /* AppManager.swift */,
 			);
 			path = Managers;
@@ -627,6 +649,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = AB8302241E424F89004C3552;
 			productRefGroup = AB83022E1E424F89004C3552 /* Products */;
@@ -646,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB83026E1E425116004C3552 /* LaunchScreen.storyboard in Resources */,
+				AB7F581D1E4DC7F900144DD6 /* Localizable.strings in Resources */,
 				AB482E8A1E43A4010003E085 /* People.storyboard in Resources */,
 				AB83026B1E425116004C3552 /* Assets.xcassets in Resources */,
 				AB83027A1E42525E004C3552 /* Home.storyboard in Resources */,
@@ -821,10 +845,13 @@
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
 				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
 				AB2251181E4889F200EDA5D2 /* TransformableProtocol.swift in Sources */,
+				ABFE4B2A1E4DBA660073BDDA /* NavigationManager.swift in Sources */,
+				AB7F58241E4DCB7300144DD6 /* BaseLocalizable.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
 				AB4440081E44953A00193697 /* Api.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
+				AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */,
 				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
 				AB22511A1E488A7100EDA5D2 /* PersonTransformer.swift in Sources */,
 				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
@@ -879,6 +906,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AB7F581F1E4DC7F900144DD6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB7F581E1E4DC7F900144DD6 /* en */,
+				AB7F58201E4DC80E00144DD6 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AB8302691E425116004C3552 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -894,6 +930,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -944,6 +981,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
