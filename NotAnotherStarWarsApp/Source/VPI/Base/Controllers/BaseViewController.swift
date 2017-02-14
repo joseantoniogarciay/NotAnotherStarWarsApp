@@ -13,6 +13,10 @@ protocol DependencyInjectionProtocol {
 }
 
 class BaseViewController: UIViewController, DependencyInjectionProtocol {
+    
+    override var navigationController: UINavigationController? {
+        get { return nil }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
