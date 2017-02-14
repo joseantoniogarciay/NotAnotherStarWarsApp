@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appManager: AppManagerProtocol = AppManager.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return appManager.didFinishLaunching(launchOptions: launchOptions)
+        return appManager.didFinishLaunching(launchOptions: launchOptions, window: &window)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

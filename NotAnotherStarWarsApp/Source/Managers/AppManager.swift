@@ -13,7 +13,7 @@ public protocol AppManagerProtocol {
     static var shared: AppManagerProtocol { get }
     var application: UIApplication { get }
     
-    func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: inout UIWindow?) -> Bool
     
     func willResignActive()
     
@@ -32,8 +32,11 @@ class AppManager: AppManagerProtocol {
     static let shared: AppManagerProtocol = AppManager()
     var application : UIApplication { get { return UIApplication.shared } }
     
-    open func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    open func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: inout UIWindow?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = NavigationManager.shared.currentNavController
+        window?.makeKeyAndVisible()
         return true
     }
     

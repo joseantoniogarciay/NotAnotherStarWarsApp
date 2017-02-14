@@ -21,7 +21,7 @@ class AppManagerMock: AppManagerProtocol {
     open static let shared: AppManagerProtocol = AppManagerMock()
     var application : UIApplication { get { return UIApplication.shared } }
     
-    func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: inout UIWindow?) -> Bool {
         didFinishLaunchingCalled = true
         return false
     }

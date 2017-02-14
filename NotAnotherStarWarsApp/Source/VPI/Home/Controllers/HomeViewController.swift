@@ -31,7 +31,6 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
     
     override func dependencyInjection() {
         presenter = HomePresenter(homeVC: self)
-        NavigationManager.shared.setNavigationController(self.navigationController)
     }
     
     override func configView() {

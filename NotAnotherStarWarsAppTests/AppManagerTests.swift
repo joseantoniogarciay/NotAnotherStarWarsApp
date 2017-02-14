@@ -24,7 +24,8 @@ class AppManagerTests: XCTestCase {
     }
     
     func testDidFinishLaunching() {
-        XCTAssertTrue(appManager.didFinishLaunching(launchOptions: nil))
+        var window: UIWindow?
+        XCTAssertTrue(appManager.didFinishLaunching(launchOptions: nil, window: &window))
     }
     
     func testWillResignActive() {

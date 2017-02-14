@@ -14,7 +14,10 @@ class NavigationManager: NSObject {
 
     static let shared = NavigationManager()
     
-    fileprivate override init() {}
+    fileprivate override init() {
+        let homeVC = HomeViewController.instantiate()
+        currentNavController = UINavigationController(rootViewController: homeVC)
+    }
         
     func setNavigationController(_ navigationController: UINavigationController?){
         currentNavController = navigationController
