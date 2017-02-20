@@ -14,7 +14,7 @@ class XC_001_Register: NativeTestCase {
     override func setUp() {
         super.setUp()
         let app = XCUIApplication()
-        app.launch()
+        app.launch()        
     }
     
     override class open func path() -> URL? {

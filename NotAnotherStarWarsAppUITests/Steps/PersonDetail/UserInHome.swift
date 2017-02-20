@@ -18,7 +18,7 @@ class UserInHome: StepDefiner {
     override func defineSteps() {
         
         step("User is in home") {
-            
+            //Nothing to do
         }
         
     }

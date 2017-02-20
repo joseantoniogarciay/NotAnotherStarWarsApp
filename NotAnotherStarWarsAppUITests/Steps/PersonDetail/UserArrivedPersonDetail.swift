@@ -18,7 +18,8 @@ class UserArrivedPersonDetail: StepDefiner {
     override func defineSteps() {
         
         step("User has arrived to person detail") {
-            
+            sleep(4)
+            XCTAssert(DetailPersonScreen.getTitle() == .PeopleDetail_Title)
         }
         
     }

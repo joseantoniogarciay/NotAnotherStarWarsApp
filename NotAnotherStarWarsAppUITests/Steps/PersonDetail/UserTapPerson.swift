@@ -18,7 +18,8 @@ class UserTapPerson: StepDefiner {
     override func defineSteps() {
         
         step("User taps a person") {
-            
+            sleep(3)
+            HomeScreen.tapAnyPersonCell()
         }
         
     }

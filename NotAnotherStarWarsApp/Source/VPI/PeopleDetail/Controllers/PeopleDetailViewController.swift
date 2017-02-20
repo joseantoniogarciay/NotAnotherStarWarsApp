@@ -26,7 +26,7 @@ class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     }
     
     override func configView() {
-        
+        title = .PeopleDetail_Title
     }
 
 }

@@ -15,7 +15,7 @@ protocol DependencyInjectionProtocol {
 class BaseViewController: UIViewController, DependencyInjectionProtocol {
     
     override var navigationController: UINavigationController? {
-        get { return nil }
+        get { return nil } //Hard restriction
     }
 
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class BaseViewController: UIViewController, DependencyInjectionProtocol {
     }
     
     func dependencyInjection() {
-        
+        preconditionFailure("This method must be overridden")
     }
     
     func configView() {
