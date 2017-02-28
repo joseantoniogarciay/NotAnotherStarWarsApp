@@ -19,9 +19,10 @@ class PeopleParser {
             throw PeopleError.nullResponse
         }
         
-        let arrayPeople = arrayPeopleNet.map({ peopleNet -> Person in
+        let arrayPeople = arrayPeopleNet.flatMap({ peopleNet -> Person? in
             PersonTransformer.transform(with: peopleNet)
         })
+        
         return arrayPeople
     }
     

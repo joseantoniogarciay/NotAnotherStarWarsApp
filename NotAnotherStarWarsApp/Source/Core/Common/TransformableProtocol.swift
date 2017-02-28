@@ -12,6 +12,6 @@ public protocol TransformableProtocol {
     
     associatedtype T
     associatedtype U
-    static func transform(with : T) -> U
+    static func transform(with : T) -> U?
     
 }

@@ -10,11 +10,13 @@ import Foundation
 
 class PersonTransformer: TransformableProtocol {
     
-    static func transform(with peopleNet: PersonNet) -> Person {
+    static func transform(with personNet: PersonNet) -> Person? {
+        guard let name = personNet.name else { return nil }
+
         return Person.Builder()
-            .setName(peopleNet.name)
-            .setHeight(peopleNet.height)
-            .setMass(peopleNet.mass)
+            .setName(name)
+            .setHeight(personNet.height)
+            .setMass(personNet.mass)
             .build()
     }
 

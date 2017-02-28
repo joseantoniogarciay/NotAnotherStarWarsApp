@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct PersonNet : Mappable {
     
-    let name: String
+    let name: String?
     let height: String?
     let mass: String?
     let hairColor: String?
@@ -29,8 +29,7 @@ struct PersonNet : Mappable {
     let url: String?
     
     init?(map: Map) {
-        do { name = try map.value("name") }
-        catch { return nil }
+        name = try? map.value("name")
         height = try? map.value("height")
         mass = try? map.value("mass")
         hairColor = try? map.value("hair_color")
