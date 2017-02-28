@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import ResponseDetective
 
 class NetAlamoFire : Net {
     let DF_CACHE_SIZE = 5 * 1024 * 1024
@@ -17,7 +18,9 @@ class NetAlamoFire : Net {
     let reachabilityManager = Alamofire.NetworkReachabilityManager(host: "www.apple.com")!
 
     init(requestTimeout: TimeInterval = 20.0) {
-        self.manager = Alamofire.SessionManager.default
+        let configuration = URLSessionConfiguration.default
+        ResponseDetective.enable(inConfiguration: configuration)
+        self.manager = Alamofire.SessionManager(configuration: configuration)
         self.manager.session.configuration.timeoutIntervalForRequest = requestTimeout
         self.setupCaching()
     }
@@ -32,7 +35,7 @@ class NetAlamoFire : Net {
             self.manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         }
         do {
-            return try AlamoFireAdapter.adaptRequest(request)
+            return try AlamoFireAdapter.adaptRequest(request, manager:self.manager)
         } catch {
             throw error
         }

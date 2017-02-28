@@ -13,8 +13,8 @@ import ObjectMapper
 
 class AlamoFireAdapter {
 
-    static func adaptRequest(_ request: Request) throws -> NetworkResponse! {
-        let afResponse = Alamofire.request(
+    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager) throws -> NetworkResponse! {
+        let afResponse = manager.request(
                 request.url,
                 method: self.transformMethod(request.method),
                 parameters:request.body.params,

@@ -9,6 +9,7 @@ target 'NotAnotherStarWarsApp' do
    pod 'Alamofire-Synchronous', '~> 4.0'
    pod 'ObjectMapper'
    pod 'HydraAsync'
+   pod 'ResponseDetective', '~> 1.0'
 end
 
 target 'NotAnotherStarWarsAppTests' do

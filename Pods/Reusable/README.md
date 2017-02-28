@@ -10,15 +10,22 @@ A Swift mixin to use `UITableViewCells`, `UICollectionViewCells` and `UIViewCont
 [![Version](http://cocoapod-badges.herokuapp.com/v/Reusable/badge.png)](http://cocoadocs.org/docsets/Reusable)
 [![Language: Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 
+# Requirements
+
+|  Swift Version |  Reusable Version  |
+|----------------|--------------------|
+|    2.2 & 2.3   |        2.5.1       |
+|       3.0      |        3.0.0 +     |
+
 # Introduction
 
-This library aims to make it super-easy to create, dequeue and instantiate Reusable views anywhere this pattern is used: From the obvious `UITableViewCell` and `UICollectionViewCell` to custom `UIViews`, even supporting `UIViewControllers` from Storyboards.  
+This library aims to make it super-easy to create, dequeue and instantiate reusable views anywhere this pattern is used: from the obvious `UITableViewCell` and `UICollectionViewCell` to custom `UIViews`, even supporting `UIViewControllers` from Storyboards.  
 All of that simply by **marking your classes as conforming to a protocol, without having to add any code**, and **creating a type-safe API with no more String-based API**.
 
 ```swift
 // Example of what Reusable allows you to do
 final class MyCustomCell: UITableViewCell, Reusable { /* And that's it! */ }
-tableView.registerReusableCell(MyCustomCell)
+tableView.register(MyCustomCell)
 let cell: MyCustomCell = tableView.dequeueReusableCell(indexPath: indexPath)
 ```
 
@@ -45,7 +52,7 @@ This concept, called a [Mixin](http://alisoftware.github.io/swift/protocol/2015/
 ## 1. Declare your cells to conform to `Reusable` or `NibReusable`
 
 * Use the `Reusable` protocol if they don't depend on a NIB (this will use `registerClass(…)` to register the cell)
-* Use the `NibReusable` typealias if they use a `XIB` file for their content (this will use `registerNib(…)` to register the cell)
+* Use the `NibReusable` typealias (= `Reusable & NibLoadable`) if they use a `XIB` file for their content (this will use `registerNib(…)` to register the cell)
 
 ```swift
 final class CustomCell: UITableViewCell, Reusable { /* And that's it! */ }
@@ -66,7 +73,7 @@ final class CodeBasedCustomCell: UITableViewCell, Reusable {
   // By default this cell will have a reuseIdentifier of "CodeBasedCustomCell"
   // unless you provide an alternative implementation of `var reuseIdentifier`
   
-  // No need to add anything to conform to Reusable. you can just keep your normal cell code
+  // No need to add anything to conform to Reusable. You can just keep your normal cell code
   @IBOutlet private weak var label: UILabel!
   func fillWithText(text: String?) { label.text = text }
 }
@@ -84,7 +91,7 @@ final class NibBasedCustomCell: UITableViewCell, NibReusable {
   // Here we provide a nib for this cell class (which, if we don't override the protocol's
   // default implementation of `nib`, will use a XIB of the same name as the class)
   
-  // No need to add anything to conform to Reusable. you can just keep your normal cell code
+  // No need to add anything to conform to Reusable. You can just keep your normal cell code
   @IBOutlet private weak var pictureView: UIImageView!
   func fillWithImage(image: UIImage?) { pictureView.image = image }
 }
@@ -126,7 +133,7 @@ Unless you've prototyped your cell in a Storyboard, you'll have to register the 
 To do this, instead of calling `registerClass(…)` or `registerNib(…)` using a String-based `reuseIdentifier`, just call:
 
 ```swift
-tableView.registerReusableCell(theCellClass)
+tableView.register(theCellClass)
 ```
 
 <details>
@@ -138,8 +145,8 @@ class MyViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.registerReusableCell(CodeBasedCustomCell) // This will register using the class without using a UINib
-    tableView.registerReusableCell(NibBasedCustomCell) // This will register using NibBasedCustomCell.xib
+    tableView.register(CodeBasedCustomCell) // This will register using the class without using a UINib
+    tableView.register(NibBasedCustomCell) // This will register using NibBasedCustomCell.xib
   }
 }
 ```
@@ -159,7 +166,7 @@ let cell: MyCustomCell = tableView.dequeueReusableCell(indexPath: indexPath)
 As long as **Swift can use type-inference to understand that you'll want a cell of type `MyCustomCell`** (either using `as MyCystomCell` or explicitly typing the receiving variable `cell: MyCustomCell`), it will magically infer both the cell class to use and thus its `reuseIdentifier` needed to dequeue the cell, and which exact type to return to save you a type-cast.
 
 * No need for you to manipulate `reuseIdentifiers` Strings manually anymore!
-* No need to force-casting the returned `UITableViewCell` instance down to your `MyCustomCell` class either!
+* No need to force-cast the returned `UITableViewCell` instance down to your `MyCustomCell` class either!
 
 <details>
 <summary>📑 Example implementation of `cellForRowAtIndexPath` using `Reusable`</summary>
@@ -290,17 +297,14 @@ final class MyCustomWidget: UIView, NibOwnerLoadable {
   …
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    MyCustomWidget.loadFromNib(owner: self)
-  }
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+    self.loadNibContent()
   }
 }
 ```
 
 Overriding `init?(coder:)` allows your `MyCustomWidget` custom view to load its content from the associated XIB `MyCustomWidget.xib` and add it as subviews of itself.
 
-_💡 Note: overriding `init(frame:)`, even just to call `super.init(frame: frame)` might seems pointless, but seems necessary in some cases due to a strange issue with Swift and dynamic dispatch not being able to detect and call the superclass implementation all by itself: I've sometimes seen crashes when not implementing it explicitly, so better safe than sorry._
+_💡 Note: it is also possible to override `init(frame:)`, in order to be able to create an instance of that view programatically and call `loadNibContent()` to fill with views if needed.
 
 ## 3b. Instantiating a `NibLoadable` view
 
@@ -314,8 +318,6 @@ let view2 = NibBasedRootView.loadFromNib() // Create another one
 let view3 = NibBasedRootView.loadFromNib() // and another one
 …
 ```
-
-> 💡 You could also use `MyCustomWidget.loadFromNib()` on a `NibOwnerLoadable` — the same way we just did on `NibLoadable` views above — to load them by code if needs be too.
 
 ---
 
@@ -333,7 +335,7 @@ In your swift source declaring your custom `UIViewController` class:
   * This is typically ideal if you use one Storyboard per ViewController, for example.
 * Use the `StoryboardSceneBased` protocol if scene in your storyboard has the same `sceneIdentifier` as the name of the ViewController's class, but the `*.storyboard` file name doesn't necessary match the ViewController's class name.
   * This is typically ideal for secondary scenes in bigger storyboards
-  * You'll then be required to implement the `storyboard` type property to indicate the storyboard it belongs to.
+  * You'll then be required to implement the `sceneStoryboard` type property to indicate the storyboard it belongs to.
 
 <details>
 <summary>📑 Example of a ViewController being the initial ViewController of its Storyboard</summary>
@@ -350,11 +352,11 @@ final class CustomVC: UIViewController: StoryboardBased { /* and that's it! */ }
 
 In this example, `SecondaryVC` is designed in a Storyboard name `CustomVC.storyboard` (so with a different name than the class itself) and is _not_ the initial ViewController, but instead has its **"Scene Identifier"** set to the value `"SecondaryVC"` (same as the class name)
 
-Conforming to `StoryboardSceneBased` will still require you to implement `static var storyboard: UIStoryboard { get }` to indicate the Storyboard where this scene is designed. You can typically implement that property using a `let` type constant:
+Conforming to `StoryboardSceneBased` will still require you to implement `static var sceneStoryboard: UIStoryboard { get }` to indicate the Storyboard where this scene is designed. You can typically implement that property using a `let` type constant:
 
 ```swift
 final class SecondaryVC: UIViewController: StoryboardSceneBased {
-  static let storyboard = UIStoryboard(name: "CustomVC", bundle: nil)
+  static let sceneStoryboard = UIStoryboard(name: "CustomVC", bundle: nil)
   /* and that's it! */
 }
 ```
@@ -381,16 +383,16 @@ func presentSecondary() {
 
 ## Make your subclasses `final`
 
-I advise your to mark your custom `UITableViewCell`, `UICollectionViewCell`, `UIView` and `UIViewController` subclasses as being `final`. This is because:
+I advise you to mark your custom `UITableViewCell`, `UICollectionViewCell`, `UIView` and `UIViewController` subclasses as being `final`. This is because:
 
 * In most cases, the custom cells and VCs you plan to instantiate are not intended to be subclassed themselves.
-* more importantly, it helps the compiler a lot and gives you big optimizations
-* it can be required in some cases when conforming to `protocols` that have `Self` requirements, like the ones used by this pod (`Reusable`, `StoryboardBased`, …). 
+* More importantly, it helps the compiler a lot and gives you big optimizations
+* It can be required in some cases when conforming to `protocols` that have `Self` requirements, like the ones used by this pod (`Reusable`, `StoryboardBased`, …). 
 
 In some cases you can avoid making your classes `final`, but in general it's a good practice, and in the case of this pod, usually your custom `UIViewController` or whatever won't be subclassed anyway:
 
 * Either they are intended to be used and instantiated directly and never be subclassed, so `final` makes sense here
-* In case your custom `UIViewController`, `UITableViewCell`, etc… is intended to be subclassed and be the parent class of many classes in your app, it makes more sense to add the protocol conformance (`StoryboardBased`, `Reusable`, …) to the child classes (and mark _them_ `final`) than adding the protocol on the parent, abstract class.
+* In case your custom `UIViewController`, `UITableViewCell`, etc… is intended to be subclassed and be the parent class of many classes in your app, it makes more sense to **add the protocol conformance (`StoryboardBased`, `Reusable`, …) to the child classes (and mark _them_ `final`)** than adding the protocol on the parent, abstract class.
 
 ## Customize reuseIdentifier, nib, etc for non-conventional uses
 
@@ -445,12 +447,6 @@ It demonstrates how `Reusable` works for:
 * `UICollectionView`'s `SupplementaryViews` (section Headers)
 * Custom `UIView` designed in a XIB (`NibOwnerLoadable`)
 
-# Requirements
-
-|  Swift Version |  Reusable Version  |
-|----------------|--------------------|
-|       2.x      |        2.5.1       |
-|       3.0      |        3.0.0       |
 
 # License
 

@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ResponseDetective.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Reusable.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,6 +62,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>10399BE5478D0A9A183C26A62A0A3A41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3B1B2716C219D25B5E7039E9985733AD</key>
 		<dict>
 			<key>primary</key>
@@ -67,32 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80A5B28CB4109885AB229ABA507AD3C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92C78C3439E2E3ADFDB7A0A4980570F5</key>
+		<key>CD6C9FB6B052E1CF663F8A56041EA163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E596064EF4CF2C5DEF4A53A1AF3A8705</key>
+		<key>E6CD06E7DBF7703CC2D252462F550E6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EBE460D3E3A3CF1AFBBDFA387940E5E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F60B02C3EE9131907DEC134EDC0BFE13</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD45E77B7C7FF7E8B171224967E5896E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

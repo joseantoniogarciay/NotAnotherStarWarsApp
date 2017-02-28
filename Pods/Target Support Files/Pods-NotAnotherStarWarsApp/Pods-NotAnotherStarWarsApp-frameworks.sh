@@ -93,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire-Synchronous/Alamofire_Synchronous.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HydraAsync/Hydra.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper/ObjectMapper.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ResponseDetective/ResponseDetective.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Reusable/Reusable.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -100,6 +101,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire-Synchronous/Alamofire_Synchronous.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HydraAsync/Hydra.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ObjectMapper/ObjectMapper.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ResponseDetective/ResponseDetective.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Reusable/Reusable.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
