@@ -8,11 +8,11 @@
 
 import Foundation
 
-class PersonTransformer: TransformableProtocol {
+class PersonTransformer: TransformerProtocol {
     
-    static func transform(with personNet: PersonNet) -> Person? {
+    static func transform(from personNet: PersonNet) -> Person? {
         guard let name = personNet.name else { return nil }
-
+        
         return Person.Builder()
             .setName(name)
             .setHeight(personNet.height)

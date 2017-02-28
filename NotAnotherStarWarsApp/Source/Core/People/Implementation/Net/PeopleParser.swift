@@ -20,7 +20,7 @@ class PeopleParser {
         }
         
         let arrayPeople = arrayPeopleNet.flatMap({ peopleNet -> Person? in
-            PersonTransformer.transform(with: peopleNet)
+            PersonTransformer.transform(from: peopleNet)
         })
         
         return arrayPeople
