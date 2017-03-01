@@ -643,6 +643,7 @@
 				AB83022B1E424F89004C3552 /* Resources */,
 				341F8777AA774B97B95D49CC /* [CP] Embed Pods Frameworks */,
 				13D30B30A72BE74818677607 /* [CP] Copy Pods Resources */,
+				AB8041861E66C33F007E0C06 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -854,6 +855,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AB8041861E66C33F007E0C06 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b64c85be4a394fedbadc9d668edfe201ae61a563 01a308889c79c91cd4fc4df8d98ae7f5a2bb1c7a5dd0b590a45a3354ce876fa4";
 		};
 		B03D0619FE2B341F83DC759B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1121,6 +1135,7 @@
 			baseConfigurationReference = D84EE19978DCA2C23D05EC97 /* Pods-NotAnotherStarWarsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8CH5HQ4HDY;
 				INFOPLIST_FILE = NotAnotherStarWarsApp/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

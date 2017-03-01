@@ -10,6 +10,8 @@ target 'NotAnotherStarWarsApp' do
    pod 'ObjectMapper'
    pod 'HydraAsync'
    pod 'ResponseDetective', '~> 1.0'
+   pod 'Fabric'
+   pod 'Crashlytics'
 end
 
 target 'NotAnotherStarWarsAppTests' do
