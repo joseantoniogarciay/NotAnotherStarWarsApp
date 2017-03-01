@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hydra
 
 protocol HomePresenterProtocol {
     weak var homeVC : HomeViewProtocol? { get set }
@@ -33,13 +32,14 @@ class HomePresenter : HomePresenterProtocol {
     }
     
     func getPeople() {
-        peopleInteractor.getPeople()
-            .then(in: .main) { [weak self] arrayPerson in
+        _ = peopleInteractor.getPeople()
+            .onSuccess({ [weak self] (arrayPerson) in
                 self?.homeVC?.updatePeople(arrayPerson)
-            }
-            .catch(in: .main, { (error) in
+            })
+            .onError({ (error) in
                 // TODO : self?.homeVC?.showErrorPeople()
             })
+            .execute()
     }
 
 }
@@ -54,13 +54,14 @@ extension HomePresenter {
         homeVC?.showLoadingForPerson(person, show: true)
         let peopleDetailVC = PeopleDetailViewController.instantiate()
         peopleDetailVC.person = person
-        self.peopleInteractor.getDetailTitle()
-        .then(in: .main) { [weak self] text in
-            peopleDetailVC.title = text
+        _ = peopleInteractor.getDetailTitle()
+        .onSuccess({ [weak self] (title) in
+            peopleDetailVC.title = title
             self?.homeVC?.showLoadingForPerson(person, show: false)
             NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
             self?.pushingVC = false
-        }
+        })
+        .execute()
     }
     
 }

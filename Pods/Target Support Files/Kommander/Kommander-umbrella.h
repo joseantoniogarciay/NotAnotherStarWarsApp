@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double HydraVersionNumber;
-FOUNDATION_EXPORT const unsigned char HydraVersionString[];
+FOUNDATION_EXPORT double KommanderVersionNumber;
+FOUNDATION_EXPORT const unsigned char KommanderVersionString[];
 

@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HydraAsync.xcscheme</key>
+		<key>Kommander.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,11 +62,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10399BE5478D0A9A183C26A62A0A3A41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3B1B2716C219D25B5E7039E9985733AD</key>
 		<dict>
 			<key>primary</key>
@@ -77,7 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>52896DD5CC0DCE73405756BD5B5C9B67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62AD6241F608744E8C340EF14777661E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F98BD82DA04608144AEE6FFDD4A82DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97EA469A11AE00A7C0676A980CF64DAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6CD06E7DBF7703CC2D252462F550E6E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EBE460D3E3A3CF1AFBBDFA387940E5E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F60B02C3EE9131907DEC134EDC0BFE13</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD45E77B7C7FF7E8B171224967E5896E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

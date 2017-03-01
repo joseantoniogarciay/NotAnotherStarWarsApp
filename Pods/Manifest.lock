@@ -5,8 +5,8 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - HydraAsync (0.9.2)
-  - ObjectMapper (2.2.4)
+  - Kommander (0.2.4)
+  - ObjectMapper (2.2.5)
   - ResponseDetective (1.0)
   - Reusable (4.0.0):
     - Reusable/Storyboard (= 4.0.0)
@@ -24,7 +24,7 @@ DEPENDENCIES:
   - Alamofire-Synchronous (~> 4.0)
   - Crashlytics
   - Fabric
-  - HydraAsync
+  - Kommander
   - ObjectMapper
   - ResponseDetective (~> 1.0)
   - Reusable
@@ -36,12 +36,12 @@ SPEC CHECKSUMS:
   Alamofire-Synchronous: eedf1e6e961c3795a63c74990b3f7d9fbfac7e50
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  HydraAsync: 417971b583cb56790edf6a7ed9c5339fb7806a35
-  ObjectMapper: 81d0e5d7c57129e3e93f29a04bdf9669542b37d2
+  Kommander: 5d0dd74f57c61df76b4ab24c45d922029c0b53ad
+  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   ResponseDetective: ccdd99846c52290aecc6520aaa1e6c22fdf4998a
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
   XCTest-Gherkin: 1b4a3a1ee6e464f2223dea67fbea16bb58cf0c07
 
-PODFILE CHECKSUM: 6664b5f5430b927b055a7f7972861ce906a2ee24
+PODFILE CHECKSUM: 072af8453fae25d62fade3aedf3052fcae82adcb
 
 COCOAPODS: 1.2.0.beta.3
