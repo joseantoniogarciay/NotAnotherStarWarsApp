@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 import ResponseDetective
 
 class NetAlamoFire : Net {
