@@ -12,6 +12,6 @@ public protocol Transformable {
     
     associatedtype Origin
     associatedtype Target
-    static func transform(with : Origin) -> Target?
+    static func transform(from : Origin) -> Target?
     
 }

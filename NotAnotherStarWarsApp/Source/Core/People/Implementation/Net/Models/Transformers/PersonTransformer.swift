@@ -10,7 +10,7 @@ import Foundation
 
 class PersonTransformer: Transformable {
     
-    static func transform(with personNet: PersonNet) -> Person? {
+    static func transform(from personNet: PersonNet) -> Person? {
         guard let name = personNet.name else { return nil }
 
         return Person.Builder()
