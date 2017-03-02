@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		590BD9DCA48BE3D7E4D6099A /* Pods_NotAnotherStarWarsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */; };
 		88B037DCACD656D3B1D967E6 /* Pods_NotAnotherStarWarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */; };
-		AB2251181E4889F200EDA5D2 /* TransformableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */; };
-		AB22511A1E488A7100EDA5D2 /* PersonTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251191E488A7100EDA5D2 /* PersonTransformer.swift */; };
+		AB2251181E4889F200EDA5D2 /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251171E4889F200EDA5D2 /* Transformable.swift */; };
 		AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */; };
 		AB4440051E44953A00193697 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFA1E44953A00193697 /* Net.swift */; };
 		AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */; };
@@ -30,6 +29,10 @@
 		AB4440241E449C2F00193697 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440231E449C2F00193697 /* People.swift */; };
 		AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440261E449F4F00193697 /* PagePeopleNet.swift */; };
 		AB4440291E449F4F00193697 /* PersonNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440271E449F4F00193697 /* PersonNet.swift */; };
+		AB469D511E6834FA003856B3 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D501E6834FA003856B3 /* Convertible.swift */; };
+		AB469D551E68371E003856B3 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D531E68371E003856B3 /* JSONable.swift */; };
+		AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */; };
+		AB469D5C1E684043003856B3 /* PersonTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D5B1E684043003856B3 /* PersonTransformer.swift */; };
 		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
 		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
 		AB482E8A1E43A4010003E085 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB482E861E43A4010003E085 /* People.storyboard */; };
@@ -87,8 +90,7 @@
 		0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F94DB5382A67962563AFF39 /* Pods-NotAnotherStarWarsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformableProtocol.swift; sourceTree = "<group>"; };
-		AB2251191E488A7100EDA5D2 /* PersonTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTransformer.swift; sourceTree = "<group>"; };
+		AB2251171E4889F200EDA5D2 /* Transformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
 		AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		AB443FFA1E44953A00193697 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoFireAdapter.swift; sourceTree = "<group>"; };
@@ -108,6 +110,10 @@
 		AB4440231E449C2F00193697 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		AB4440261E449F4F00193697 /* PagePeopleNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePeopleNet.swift; sourceTree = "<group>"; };
 		AB4440271E449F4F00193697 /* PersonNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNet.swift; sourceTree = "<group>"; };
+		AB469D501E6834FA003856B3 /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
+		AB469D531E68371E003856B3 /* JSONable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
+		AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONableObjectMapper.swift; sourceTree = "<group>"; };
+		AB469D5B1E684043003856B3 /* PersonTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTransformer.swift; sourceTree = "<group>"; };
 		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
 		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
 		AB482E861E43A4010003E085 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
@@ -207,7 +213,9 @@
 		AB2251161E4889F200EDA5D2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				AB2251171E4889F200EDA5D2 /* TransformableProtocol.swift */,
+				AB469D521E68371E003856B3 /* JSONable */,
+				AB2251171E4889F200EDA5D2 /* Transformable.swift */,
+				AB469D501E6834FA003856B3 /* Convertible.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -294,7 +302,6 @@
 			children = (
 				AB4440251E449F4F00193697 /* Models */,
 				AB4440171E449BA600193697 /* PeopleDataRecover.swift */,
-				AB2251191E488A7100EDA5D2 /* PersonTransformer.swift */,
 				AB4440191E449BA600193697 /* PeopleParser.swift */,
 			);
 			path = Net;
@@ -319,10 +326,28 @@
 		AB4440251E449F4F00193697 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AB469D5A1E684043003856B3 /* Transformers */,
 				AB4440261E449F4F00193697 /* PagePeopleNet.swift */,
 				AB4440271E449F4F00193697 /* PersonNet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AB469D521E68371E003856B3 /* JSONable */ = {
+			isa = PBXGroup;
+			children = (
+				AB469D531E68371E003856B3 /* JSONable.swift */,
+				AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */,
+			);
+			path = JSONable;
+			sourceTree = "<group>";
+		};
+		AB469D5A1E684043003856B3 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				AB469D5B1E684043003856B3 /* PersonTransformer.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 		AB482E7E1E43A34C0003E085 /* PeopleDetail */ = {
@@ -643,6 +668,7 @@
 				AB83022B1E424F89004C3552 /* Resources */,
 				341F8777AA774B97B95D49CC /* [CP] Embed Pods Frameworks */,
 				13D30B30A72BE74818677607 /* [CP] Copy Pods Resources */,
+				AB8041861E66C33F007E0C06 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -855,6 +881,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB8041861E66C33F007E0C06 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b64c85be4a394fedbadc9d668edfe201ae61a563 01a308889c79c91cd4fc4df8d98ae7f5a2bb1c7a5dd0b590a45a3354ce876fa4";
+		};
 		B03D0619FE2B341F83DC759B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -929,16 +968,18 @@
 				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
+				AB469D511E6834FA003856B3 /* Convertible.swift in Sources */,
 				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
-				AB2251181E4889F200EDA5D2 /* TransformableProtocol.swift in Sources */,
+				AB2251181E4889F200EDA5D2 /* Transformable.swift in Sources */,
 				ABFE4B2A1E4DBA660073BDDA /* NavigationManager.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
 				AB4440081E44953A00193697 /* Api.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
+				AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */,
 				AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */,
 				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
-				AB22511A1E488A7100EDA5D2 /* PersonTransformer.swift in Sources */,
+				AB469D551E68371E003856B3 /* JSONable.swift in Sources */,
 				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
 				AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */,
 				AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */,
@@ -952,6 +993,7 @@
 				AB4837CA1E5B153B00F54446 /* BaseLocalizable.swift in Sources */,
 				AB44400C1E44953A00193697 /* NetworkResponse.swift in Sources */,
 				AB8302791E42525E004C3552 /* HomeViewController.swift in Sources */,
+				AB469D5C1E684043003856B3 /* PersonTransformer.swift in Sources */,
 				AB924BE91E4B3C1E009781FF /* PersonTableViewCell.swift in Sources */,
 				AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */,
 				AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */,
@@ -1121,6 +1163,7 @@
 			baseConfigurationReference = D84EE19978DCA2C23D05EC97 /* Pods-NotAnotherStarWarsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8CH5HQ4HDY;
 				INFOPLIST_FILE = NotAnotherStarWarsApp/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

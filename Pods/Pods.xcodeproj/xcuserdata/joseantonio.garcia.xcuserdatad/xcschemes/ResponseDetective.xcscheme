@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FD45E77B7C7FF7E8B171224967E5896E'
+               BlueprintIdentifier = '62AD6241F608744E8C340EF14777661E'
                BlueprintName = 'ResponseDetective'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ResponseDetective.framework'>

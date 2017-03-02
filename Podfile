@@ -8,8 +8,10 @@ target 'NotAnotherStarWarsApp' do
    pod 'Alamofire', '~> 4.0'
    pod 'Alamofire-Synchronous', '~> 4.0'
    pod 'ObjectMapper'
-   pod 'HydraAsync'
+   pod 'Kommander'
    pod 'ResponseDetective', '~> 1.0'
+   pod 'Fabric'
+   pod 'Crashlytics'
 end
 
 target 'NotAnotherStarWarsAppTests' do

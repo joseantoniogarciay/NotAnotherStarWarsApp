@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct PagePeopleNet : Mappable {
+struct PagePeopleNet : Mappable, Convertible {
     
     let count: String?
     let next: String?
@@ -29,4 +29,13 @@ struct PagePeopleNet : Mappable {
         previous >>> map["previous"]
         arrayPeople >>> map["results"]
     }
+    
+    static func instance<T : Convertible>(_ JSONString: String) -> T? {
+        return PagePeopleNet(JSONString: JSONString) as? T
+    }
+    
+    static func toJSONString() -> String {
+        return self.toJSONString()
+    }
+    
 }

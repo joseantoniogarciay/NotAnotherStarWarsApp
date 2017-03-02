@@ -1,5 +1,5 @@
 //
-//  HomeController.swift
+//  NetAlamoFire.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
@@ -30,7 +30,7 @@ class NetAlamoFire : Net {
         Foundation.URLCache.shared = URLCache
     }
 
-    func launchRequest(_ request: Request) throws -> NetworkResponse! {
+    func launchRequest(_ request: Request) throws -> NetworkResponse {
         if !request.shouldCache {
             self.manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         }

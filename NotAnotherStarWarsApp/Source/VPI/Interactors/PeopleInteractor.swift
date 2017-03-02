@@ -7,27 +7,27 @@
 //
 
 import UIKit
-import Hydra
+import Kommander
 
 class PeopleInteractor {
     
-    func getPeople() -> Promise<[Person]> {
-        return Promise { fulfill, reject in
+    let kommander = Kommander()
+    
+    func getPeople() -> Kommand<[Person]> {
+        return kommander.makeKommand { () -> [Person] in
             do {
-                let arrayPerson = try DependencyProvider.people.getPeople()
-                fulfill(arrayPerson)
+                return try DependencyProvider.people.getPeople()
             } catch let error as PeopleError {
-                reject(error)
+                throw error
             }
         }
     }
     
     
-    
-    func getDetailTitle() -> Promise<String> {
-        return Promise { fulfill, reject in
+    func getDetailTitle() -> Kommand<String> {
+        return kommander.makeKommand { () -> String in
             sleep(3)
-            fulfill("Detail")
+            return("Detail")
         }
     }
 

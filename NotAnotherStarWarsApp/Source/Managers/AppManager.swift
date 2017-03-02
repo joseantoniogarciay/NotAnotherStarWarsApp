@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 public protocol AppManagerProtocol {
     
@@ -34,6 +36,7 @@ class AppManager: AppManagerProtocol {
     
     open func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: inout UIWindow?) -> Bool {
         // Override point for customization after application launch.
+        Fabric.with([Crashlytics.self])
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = NavigationManager.shared.currentNavController
         window?.makeKeyAndVisible()

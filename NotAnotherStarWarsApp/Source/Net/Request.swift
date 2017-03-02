@@ -1,5 +1,5 @@
 //
-//  HomeController.swift
+//  Request.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
