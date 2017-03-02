@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import Alamofire
 
 struct Request {
     let url: String
-    let method: HTTPMethod
+    let method: Method
     let shouldCache: Bool
     let headers: Dictionary<String, String>
     let body: Body
@@ -32,7 +31,7 @@ struct Request {
 
 class RequestBuilder {
     var url: String?
-    var method: HTTPMethod?
+    var method: Method?
     var shouldCache: Bool?
     var headers: Dictionary<String, String>?
     var body: Body?
@@ -56,13 +55,14 @@ struct Body {
 
 enum Method {
     case get,
-     post,
-     put,
-     delete,
-     head,
-     options,
-     trace,
-     patch
+    post,
+    put,
+    delete,
+    head,
+    options,
+    trace,
+    patch,
+    connect
 }
 
 enum ParameterEncoding {

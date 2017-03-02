@@ -44,7 +44,7 @@ class AlamoFireAdapter {
         return nil
     }
 
-    internal static func transformMethod(_ method: HTTPMethod) -> Alamofire.HTTPMethod {
+    internal static func transformMethod(_ method: Method) -> Alamofire.HTTPMethod {
         switch (method) {
         case .delete:
             return Alamofire.HTTPMethod.delete

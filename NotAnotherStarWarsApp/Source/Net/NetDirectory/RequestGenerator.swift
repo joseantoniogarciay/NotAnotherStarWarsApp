@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import Alamofire
 
 class RequestGenerator {
 
     var requestUrl: String = ""
-    var requestMethod: HTTPMethod = .get
+    var requestMethod: Method = .get
     var requestHeaders: Dictionary<String, String> = [:]
     var requestParams: Dictionary<String, AnyObject> = [:]
     var paramEncoding: ParameterEncoding = .url
@@ -23,7 +22,7 @@ class RequestGenerator {
         return self
     }
     
-    func method(_ method: HTTPMethod) -> Self {
+    func method(_ method: Method) -> Self {
         self.requestMethod = method
         return self
     }
