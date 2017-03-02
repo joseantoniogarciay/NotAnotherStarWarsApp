@@ -1,5 +1,5 @@
 //
-//  TransformableProtocol.swift
+//  Transformable.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 6/2/17.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-public protocol TransformableProtocol {
+public protocol Transformable {
     
-    associatedtype T
-    associatedtype U
-    static func transform(with : T) -> U?
+    associatedtype Origin
+    associatedtype Target
+    static func transform(with : Origin) -> Target?
     
 }

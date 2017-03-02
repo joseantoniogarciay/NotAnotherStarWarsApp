@@ -1,5 +1,5 @@
 //
-//  HomeController.swift
+//  Net.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Net {
-    func launchRequest(_ request: Request) throws -> NetworkResponse!
+    func launchRequest(_ request: Request) throws -> NetworkResponse
     func isReachable() -> Bool
 }

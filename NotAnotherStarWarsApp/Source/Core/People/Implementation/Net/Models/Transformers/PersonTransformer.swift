@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PersonTransformer: TransformableProtocol {
+class PersonTransformer: Transformable {
     
     static func transform(with personNet: PersonNet) -> Person? {
         guard let name = personNet.name else { return nil }

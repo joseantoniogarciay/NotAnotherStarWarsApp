@@ -12,6 +12,7 @@ import Reusable
 protocol HomeViewProtocol: class {
     func updatePeople(_ arrayPerson: [Person])
     func showLoadingForPerson(_ person: Person, show: Bool)
+    func stopTableViewActivityIndicator()
 }
 
 
@@ -62,6 +63,10 @@ extension HomeViewController : HomeViewProtocol {
                 show ? cell.startLoading() : cell.stopLoading()
             }
         }
+    }
+    
+    func stopTableViewActivityIndicator() {
+        tableViewActivityIndicator.stopAnimating()
     }
     
 }

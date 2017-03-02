@@ -36,8 +36,8 @@ class HomePresenter : HomePresenterProtocol {
             .onSuccess({ [weak self] (arrayPerson) in
                 self?.homeVC?.updatePeople(arrayPerson)
             })
-            .onError({ (error) in
-                // TODO : self?.homeVC?.showErrorPeople()
+            .onError({ [weak self] (error) in
+                self?.homeVC?.stopTableViewActivityIndicator()
             })
             .execute()
     }

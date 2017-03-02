@@ -1,5 +1,5 @@
 //
-//  HomeController.swift
+//  AlamoFireAdapter.swift
 //  NotAnotherStarWarsApp
 //
 //  Created by Jose Antonio García Yañez on 3/2/17.
@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import Alamofire_Synchronous
-import ObjectMapper
 
 class AlamoFireAdapter {
 

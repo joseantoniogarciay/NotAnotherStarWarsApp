@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 
-struct PersonNet : Mappable {
-    
+struct PersonNet : Mappable, Convertible {
+
     let name: String?
     let height: String?
     let mass: String?
@@ -65,4 +65,13 @@ struct PersonNet : Mappable {
         edited >>> map["edited"]
         url >>> map["url"]
     }
+    
+    static func instance<T : Convertible>(_ JSONString: String) -> T? {
+        return PersonNet(JSONString: JSONString) as? T
+    }
+    
+    static func toJSONString() -> String {
+        return self.toJSONString()
+    }
+    
 }
