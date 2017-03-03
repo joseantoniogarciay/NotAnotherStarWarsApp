@@ -56,6 +56,7 @@
 		AB8302821E425436004C3552 /* AppManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302811E425436004C3552 /* AppManagerTests.swift */; };
 		AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302841E4257BA004C3552 /* BaseViewController.swift */; };
 		AB8302871E42588C004C3552 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302861E42588C004C3552 /* AppDelegateTests.swift */; };
+		AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90F7501E696139009BD436 /* PrintProduction.swift */; };
 		AB924BE01E4B367B009781FF /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */; };
 		AB924BE31E4B3A2F009781FF /* PeopleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */; };
 		AB924BE91E4B3C1E009781FF /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE71E4B3C1E009781FF /* PersonTableViewCell.swift */; };
@@ -141,6 +142,7 @@
 		AB8302811E425436004C3552 /* AppManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManagerTests.swift; sourceTree = "<group>"; };
 		AB8302841E4257BA004C3552 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB8302861E42588C004C3552 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		AB90F7501E696139009BD436 /* PrintProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintProduction.swift; sourceTree = "<group>"; };
 		AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleInteractor.swift; sourceTree = "<group>"; };
 		AB924BE71E4B3C1E009781FF /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */,
+				AB90F7501E696139009BD436 /* PrintProduction.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				AB4440051E44953A00193697 /* Net.swift in Sources */,
 				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
+				AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */,
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
 				AB469D511E6834FA003856B3 /* Convertible.swift in Sources */,
 				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
