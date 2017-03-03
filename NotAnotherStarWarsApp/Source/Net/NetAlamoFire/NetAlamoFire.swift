@@ -18,7 +18,9 @@ class NetAlamoFire : Net {
 
     init(requestTimeout: TimeInterval = 20.0) {
         let configuration = URLSessionConfiguration.default
-        ResponseDetective.enable(inConfiguration: configuration)
+        #if DEBUG
+            ResponseDetective.enable(inConfiguration: configuration)
+        #endif
         self.manager = Alamofire.SessionManager(configuration: configuration)
         self.manager.session.configuration.timeoutIntervalForRequest = requestTimeout
         self.setupCaching()

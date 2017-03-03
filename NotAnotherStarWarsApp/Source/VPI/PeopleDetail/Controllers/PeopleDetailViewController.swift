@@ -11,7 +11,7 @@ import Reusable
 
 class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     
-    static var sceneStoryboard = UIStoryboard(name: "People", bundle: nil)
+    static var sceneStoryboard = UIStoryboard(name: AppStoryboard.People.rawValue, bundle: nil)
     var presenter: PeopleDetailPresenterProtocol?
     
     var person: Person?
