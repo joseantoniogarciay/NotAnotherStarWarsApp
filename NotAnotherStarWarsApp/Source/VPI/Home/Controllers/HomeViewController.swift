@@ -18,7 +18,7 @@ protocol HomeViewProtocol: class {
 
 class HomeViewController: BaseViewController, StoryboardSceneBased {
     
-    static var sceneStoryboard = UIStoryboard(name: "Home", bundle: nil)
+    static var sceneStoryboard = UIStoryboard(name: AppStoryboard.Home.rawValue, bundle: nil)
     var presenter : HomePresenterProtocol?
     var arrayPerson : Array<Person>?
 

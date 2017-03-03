@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		590BD9DCA48BE3D7E4D6099A /* Pods_NotAnotherStarWarsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */; };
 		88B037DCACD656D3B1D967E6 /* Pods_NotAnotherStarWarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */; };
+		AB02318D1E696798006B6433 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02318C1E696798006B6433 /* AppStoryboard.swift */; };
 		AB2251181E4889F200EDA5D2 /* Transformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2251171E4889F200EDA5D2 /* Transformable.swift */; };
 		AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */; };
 		AB4440051E44953A00193697 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFA1E44953A00193697 /* Net.swift */; };
@@ -91,6 +92,7 @@
 		0C12672531E13BFE9E928C20 /* Pods_NotAnotherStarWarsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F94DB5382A67962563AFF39 /* Pods-NotAnotherStarWarsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherStarWarsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherStarWarsAppTests/Pods-NotAnotherStarWarsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5DF6162A301B4D8FE8A2675 /* Pods_NotAnotherStarWarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherStarWarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB02318C1E696798006B6433 /* AppStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		AB2251171E4889F200EDA5D2 /* Transformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformable.swift; sourceTree = "<group>"; };
 		AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		AB443FFA1E44953A00193697 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			children = (
 				AB22511C1E48A7DB00EDA5D2 /* DependencyProvider.swift */,
 				AB90F7501E696139009BD436 /* PrintProduction.swift */,
+				AB02318C1E696798006B6433 /* AppStoryboard.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				AB4440091E44953A00193697 /* NetSupport.swift in Sources */,
 				AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */,
 				AB4440051E44953A00193697 /* Net.swift in Sources */,
+				AB02318D1E696798006B6433 /* AppStoryboard.swift in Sources */,
 				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
 				AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */,
