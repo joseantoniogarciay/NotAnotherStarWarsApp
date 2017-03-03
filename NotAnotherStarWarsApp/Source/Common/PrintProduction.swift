@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Disable print for production.
+// Disable print for production. Copy file in Pods Project before archive :)
 
 public func print(_ items: Any..., separator: String = "", terminator: String = "\n") {
     #if DEBUG
