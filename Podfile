@@ -12,6 +12,7 @@ target 'NotAnotherStarWarsApp' do
    pod 'ResponseDetective', '~> 1.0'
    pod 'Fabric'
    pod 'Crashlytics'
+   pod 'NVActivityIndicatorView'
 end
 
 target 'NotAnotherStarWarsAppTests' do
