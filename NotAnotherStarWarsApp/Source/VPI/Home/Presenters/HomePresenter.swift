@@ -42,11 +42,12 @@ class HomePresenter : HomePresenterProtocol {
                 self?.homeVC?.stopTableViewActivityIndicator()
             }
         })
-        .onSuccess({ [weak self] (identifier) in
-            
+        .onSuccess({ (identifier) in
+            print(identifier)
         })
-        .onError({ [weak self] (error) in
-            
+        .onError({ (error) in
+            let description = error?.localizedDescription ?? ""
+            print(description)
         })
         .execute()
     }
@@ -62,7 +63,8 @@ class HomePresenter : HomePresenterProtocol {
             //self.peopleInteractor.cancelTask(identifier: identifier)
         })
         .onError({ (error) in
-            print(error)
+            let description = error?.localizedDescription ?? ""
+            print(description)
         })
         .execute()
     }

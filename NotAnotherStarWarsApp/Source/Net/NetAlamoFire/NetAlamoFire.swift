@@ -39,42 +39,47 @@ class NetAlamoFire : Net {
     }
     
     func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
-            var uploadRequest : Alamofire.Request!
-            var url : URLRequest = try! URLRequest(url: URL(string:"https://api.ttpdev.io/core/user/identification_files")!, method: .patch, headers: ["Accept" : "application/json", "Content-Type" : "multipart/form-data"])
-            if auth { url.addValue("98a4a833-507d-4a5f-9c03-59834c3b061b", forHTTPHeaderField: "Session-Token") }
-            let group = DispatchGroup()
-            group.enter()
-            self.manager.upload(multipartFormData: { (multipartFormData) in
-                for archive in archives {
-                    multipartFormData.append(archive.data, withName: archive.apiName, fileName: archive.fileName, mimeType: archive.mimeType)
-                }
-                for (key, value) in otherParameters {
-                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
-                }
-            }, with: url, encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    uploadRequest = upload
-                    group.leave()
-                    upload.uploadProgress(closure: { (progress) in
-                        NSLog("Progress: \(progress.fractionCompleted)")
-                        actualProgress(progress.fractionCompleted)
-                    })
-                    upload.validate().responseString() { response in
-                        var responseString = response.result.value
-                        if (responseString == nil) {
-                            responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
-                        }
-                        let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
-                        completion(networkResponse, nil)
+        var uploadRequest : Alamofire.Request!
+        var urlRequest : URLRequest!
+        do {
+            guard let url = URL(string:uploadUrl) else { return -1 }
+            urlRequest = try URLRequest(url: url, method: .patch, headers: ["Accept" : "application/json", "Content-Type" : "multipart/form-data"])
+        } catch {
+            return -1
+        }
+        if auth { urlRequest.addValue("98a4a833-507d-4a5f-9c03-59834c3b061b", forHTTPHeaderField: "Session-Token") }
+        let group = DispatchGroup()
+        group.enter()
+        self.manager.upload(multipartFormData: { (multipartFormData) in
+            for archive in archives {
+                multipartFormData.append(archive.data, withName: archive.apiName, fileName: archive.fileName, mimeType: archive.mimeType)
+            }
+            for (key, value) in otherParameters {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+            }
+        }, with: urlRequest, encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                uploadRequest = upload
+                group.leave()
+                upload.uploadProgress(closure: { (progress) in
+                    NSLog("Progress: \(progress.fractionCompleted)")
+                    actualProgress(progress.fractionCompleted)
+                })
+                upload.validate().responseString() { response in
+                    var responseString = response.result.value
+                    if (responseString == nil) {
+                        responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
                     }
-                case .failure(let encodingError):
-                    //encodingFailure
-                    group.leave()
-                    completion(NetworkResponse(statusCode: 0 , message: "", headers: [:]), nil)
+                    let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
+                    completion(networkResponse, nil)
                 }
-            })
-            group.wait()
+            case .failure:
+                group.leave()
+                completion(nil, NetError.encodingError)
+            }
+        })
+        group.wait()
         return (uploadRequest.task != nil) ? uploadRequest.task!.taskIdentifier : -1
     }
 

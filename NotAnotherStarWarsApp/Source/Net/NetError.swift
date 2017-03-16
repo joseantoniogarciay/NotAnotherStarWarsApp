@@ -13,4 +13,5 @@ enum NetError : Error {
     case emptyResponse
     case mappingError
     case nullResponse
+    case encodingError
 }
