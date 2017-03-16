@@ -11,7 +11,7 @@ import Alamofire
 
 class AlamoFireAdapter {
 
-    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((Bool, NetworkResponse, Error?) -> Void)) -> Int {
+    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((NetworkResponse, Error?) -> Void)) -> Int {
         let afResponse = manager.request(
                 request.url,
                 method: self.transformMethod(request.method),
@@ -20,7 +20,7 @@ class AlamoFireAdapter {
                 headers: request.headers).validate().responseString() { afResponse in
                 
                     let netResponse = NetworkResponse(statusCode: 0, message: afResponse.result.value!, headers: [:])
-                    completion(true, netResponse, nil)
+                    completion(netResponse, nil)
                     
                     switch afResponse.result {
                     case .success(let responseString):
@@ -34,14 +34,14 @@ class AlamoFireAdapter {
                                 adaptedHeaders[key] = value
                             }
 
-                            completion(true, NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
+                            completion(NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
                         }
                     case .failure(let error):
                         guard let statusCode = afResponse.response?.statusCode else {
-                            completion(false, NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
+                            completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
                             return
                         }
-                        completion(false, NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
+                        completion(NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
                     }
                     
                 

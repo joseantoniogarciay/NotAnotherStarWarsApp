@@ -16,20 +16,20 @@ class PeopleEngine : PeopleProtocol {
         self.peopleDataRecover = peopleDataRecover
     }
     
-    func getPeople(completion: @escaping ((Bool, [Person]?, Error?) -> Void)) -> Int {
-        return peopleDataRecover.getPeople(completion: {(result, arrayPerson, error) in
+    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Int {
+        return peopleDataRecover.getPeople(completion: {(arrayPerson, error) in
             if arrayPerson != nil {
-                completion(true, arrayPerson, nil)
+                completion(arrayPerson, nil)
             } else {
-                completion(false, nil, error)
+                completion(nil, error)
             }
         })
     }
     
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, Person?, Error?) -> Void)) -> Int {
+    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int {
         return peopleDataRecover.uploadArchives(uploadUrl: uploadUrl, otherParameters: otherParameters, auth: auth, archives: archives, actualProgress: { progress in
             actualProgress(progress)
-        }) { (result, response, error) in
+        }) { (response, error) in
             
         }
     }

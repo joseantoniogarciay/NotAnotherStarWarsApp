@@ -23,35 +23,35 @@ class NetSupport {
         return RequestGenerator()
     }
 
-    func netJsonMappableRequest<T:Convertible>(_ request: Request, completion: @escaping ((Bool, T?, Error?) -> Void)) -> Int {
-        return net.launchRequest(request, completion: { (result, netResponse, error) in
-            guard let response = netResponse else { completion(false, nil, error); return }
+    func netJsonMappableRequest<T:Convertible>(_ request: Request, completion: @escaping ((T?, Error?) -> Void)) -> Int {
+        return net.launchRequest(request, completion: { (netResponse, error) in
+            guard let response = netResponse else { completion(nil, error); return }
             guard response.message != "" else {
-                 completion(false, nil, error)
+                 completion(nil, error)
                 return
             }
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
-                completion(result, object, nil)
+                completion(object, nil)
             } catch {
-                completion(false, nil, error)
+                completion(nil, error)
             }
             
         })
     }
     
-    func netUploadArchives<T:Convertible>(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, T?, Error?) -> Void)) -> Int {
+    func netUploadArchives<T:Convertible>(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((T?, Error?) -> Void)) -> Int {
         return net.uploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
         actualProgress: { progress in
             actualProgress(progress)
         },
-        completion: { (result, netResponse, error) in
-            guard let response = netResponse else { completion(false, nil, error); return }
+        completion: { (netResponse, error) in
+            guard let response = netResponse else { completion(nil, error); return }
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
-                completion(result, object, nil)
+                completion(object, nil)
             } catch {
-                completion(false, nil, error)
+                completion(nil, error)
             }
         })
     }

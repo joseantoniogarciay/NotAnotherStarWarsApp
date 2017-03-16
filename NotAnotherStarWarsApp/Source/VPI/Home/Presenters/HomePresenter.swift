@@ -35,7 +35,7 @@ class HomePresenter : HomePresenterProtocol {
     }
     
     func getPeople() {
-        _ = peopleInteractor.getPeople(completion: { [weak self] (result, arrayPerson, error) in
+        _ = peopleInteractor.getPeople(completion: { [weak self] (arrayPerson, error) in
             if error == nil, let persons = arrayPerson {
                 self?.homeVC?.updatePeople(persons)
             } else {
@@ -54,7 +54,7 @@ class HomePresenter : HomePresenterProtocol {
     func uploadPhoto() {
         _ = peopleInteractor.uploadPhoto(actualProgress: { (progress) in
             
-        }, completion: { (result, response, error) in
+        }, completion: { (response, error) in
             
         })
         .onSuccess({ (identifier) in

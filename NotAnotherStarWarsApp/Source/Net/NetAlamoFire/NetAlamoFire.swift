@@ -31,14 +31,14 @@ class NetAlamoFire : Net {
         Foundation.URLCache.shared = URLCache
     }
 
-    func launchRequest(_ request: Request, completion: @escaping ((Bool, NetworkResponse?, Error?) -> Void)) -> Int {
+    func launchRequest(_ request: Request, completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
         if !request.shouldCache {
             self.manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         }
         return AlamoFireAdapter.adaptRequest(request, manager:self.manager, completion: completion)
     }
     
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, NetworkResponse?, Error?) -> Void)) -> Int {
+    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
             var uploadRequest : Alamofire.Request!
             var url : URLRequest = try! URLRequest(url: URL(string:"https://api.ttpdev.io/core/user/identification_files")!, method: .patch, headers: ["Accept" : "application/json", "Content-Type" : "multipart/form-data"])
             if auth { url.addValue("98a4a833-507d-4a5f-9c03-59834c3b061b", forHTTPHeaderField: "Session-Token") }
@@ -66,12 +66,12 @@ class NetAlamoFire : Net {
                             responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
                         }
                         let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
-                        completion(true, networkResponse, nil)
+                        completion(networkResponse, nil)
                     }
                 case .failure(let encodingError):
                     //encodingFailure
                     group.leave()
-                    completion(false, NetworkResponse(statusCode: 0 , message: "", headers: [:]), nil)
+                    completion(NetworkResponse(statusCode: 0 , message: "", headers: [:]), nil)
                 }
             })
             group.wait()

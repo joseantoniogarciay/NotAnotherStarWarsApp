@@ -9,6 +9,6 @@
 import Foundation
 
 protocol PeopleProtocol {
-    func getPeople(completion: @escaping ((Bool, [Person]?, Error?) -> Void)) -> Int
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, Person?, Error?) -> Void)) -> Int
+    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Int
+    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int
 }

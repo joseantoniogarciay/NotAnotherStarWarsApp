@@ -13,11 +13,11 @@ class PeopleInteractor {
     
     let kommander = Kommander()
     
-    func getPeople(completion: @escaping ((Bool, [Person]?, Error?) -> Void)) -> Kommand<[Int]> {
+    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Kommand<[Int]> {
         return kommander.makeKommand { _ in
-            return [DependencyProvider.people.getPeople(completion: { (result, response, error) in
+            return [DependencyProvider.people.getPeople(completion: { (response, error) in
                 DispatchQueue.main.async {
-                    completion(result, response, error)
+                    completion(response, error)
                 }
             })]
         }
@@ -31,7 +31,7 @@ class PeopleInteractor {
         }
     }
     
-    func uploadPhoto(actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, Person?, Error?) -> Void)) -> Kommand<Int> {
+    func uploadPhoto(actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Kommand<Int> {
         return kommander.makeKommand { _ in
             return DependencyProvider.people.uploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
             actualProgress: { progress in
@@ -39,9 +39,9 @@ class PeopleInteractor {
                    actualProgress(progress)
                 }
             },
-            completion: { (result, response, error) in
+            completion: { (response, error) in
                 DispatchQueue.main.async {
-                    completion(result, response, error)
+                    completion(response, error)
                 }
             })
         }
