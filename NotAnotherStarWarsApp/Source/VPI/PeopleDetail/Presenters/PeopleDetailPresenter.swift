@@ -17,13 +17,14 @@ protocol PeopleDetailPresenterProtocol {
 class PeopleDetailPresenter: PeopleDetailPresenterProtocol {
     
     weak var peopleDetailVC : PeopleDetailViewController?
+    var peopleInteractor = PeopleInteractor()
     
     required init(peopleDetailVC: PeopleDetailViewController) {
         self.peopleDetailVC = peopleDetailVC
     }
     
     func viewLoaded() {
-    
+        
     }
 
 }

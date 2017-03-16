@@ -31,14 +31,60 @@ class NetAlamoFire : Net {
         Foundation.URLCache.shared = URLCache
     }
 
-    func launchRequest(_ request: Request) throws -> NetworkResponse {
+    func launchRequest(_ request: Request, completion: @escaping ((Bool, NetworkResponse?, Error?) -> Void)) -> Int {
         if !request.shouldCache {
             self.manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         }
-        do {
-            return try AlamoFireAdapter.adaptRequest(request, manager:self.manager)
-        } catch {
-            throw error
+        return AlamoFireAdapter.adaptRequest(request, manager:self.manager, completion: completion)
+    }
+    
+    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, NetworkResponse?, Error?) -> Void)) -> Int {
+            var uploadRequest : Alamofire.Request!
+            var url : URLRequest = try! URLRequest(url: URL(string:"https://api.ttpdev.io/core/user/identification_files")!, method: .patch, headers: ["Accept" : "application/json", "Content-Type" : "multipart/form-data"])
+            if auth { url.addValue("98a4a833-507d-4a5f-9c03-59834c3b061b", forHTTPHeaderField: "Session-Token") }
+            let group = DispatchGroup()
+            group.enter()
+            self.manager.upload(multipartFormData: { (multipartFormData) in
+                for archive in archives {
+                    multipartFormData.append(archive.data, withName: archive.apiName, fileName: archive.fileName, mimeType: archive.mimeType)
+                }
+                for (key, value) in otherParameters {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                }
+            }, with: url, encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    uploadRequest = upload
+                    group.leave()
+                    upload.uploadProgress(closure: { (progress) in
+                        NSLog("Progress: \(progress.fractionCompleted)")
+                        actualProgress(progress.fractionCompleted)
+                    })
+                    upload.validate().responseString() { response in
+                        var responseString = response.result.value
+                        if (responseString == nil) {
+                            responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
+                        }
+                        let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
+                        completion(true, networkResponse, nil)
+                    }
+                case .failure(let encodingError):
+                    //encodingFailure
+                    group.leave()
+                    completion(false, NetworkResponse(statusCode: 0 , message: "", headers: [:]), nil)
+                }
+            })
+            group.wait()
+        return (uploadRequest.task != nil) ? uploadRequest.task!.taskIdentifier : -1
+    }
+
+    func cancelTask(identifier: Int) {
+        self.manager.session.getAllTasks { (tasks: [URLSessionTask]) in
+            if let task = tasks.filter({ (task: URLSessionTask) -> Bool in
+                return task.taskIdentifier == identifier
+            }).first, task.state == .running {
+                task.cancel()
+            }
         }
     }
     

@@ -8,40 +8,46 @@
 
 import Foundation
 import Alamofire
-import Alamofire_Synchronous
 
 class AlamoFireAdapter {
 
-    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager) throws -> NetworkResponse! {
+    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((Bool, NetworkResponse, Error?) -> Void)) -> Int {
         let afResponse = manager.request(
                 request.url,
                 method: self.transformMethod(request.method),
                 parameters:request.body.params,
                 encoding: self.transformParameterEncoding(request.body.parameterEncoding),
-                headers: request.headers).validate().responseString()
+                headers: request.headers).validate().responseString() { afResponse in
+                
+                    let netResponse = NetworkResponse(statusCode: 0, message: afResponse.result.value!, headers: [:])
+                    completion(true, netResponse, nil)
+                    
+                    switch afResponse.result {
+                    case .success(let responseString):
+                        if let responseData = afResponse.response {
+                            let headers = responseData.allHeaderFields
+                            
+                            var adaptedHeaders = [String:String]()
+                            for (headerKey, headerValue) in headers {
+                                let key = headerKey as! String
+                                let value = headerValue as! String
+                                adaptedHeaders[key] = value
+                            }
 
-        switch afResponse.result {
-        case .success(let responseString):
-            if let responseData = afResponse.response {
-                let headers = responseData.allHeaderFields
-
-                var adaptedHeaders = [String:String]()
-                for (headerKey, headerValue) in headers {
-                    let key = headerKey as! String
-                    let value = headerValue as! String
-                    adaptedHeaders[key] = value
-                }
-
-                return NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders)
-            }
-        case .failure(let error):
-            guard let statusCode = afResponse.response?.statusCode else {
-                throw NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription)
-            }
-            throw NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription)
+                            completion(true, NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
+                        }
+                    case .failure(let error):
+                        guard let statusCode = afResponse.response?.statusCode else {
+                            completion(false, NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
+                            return
+                        }
+                        completion(false, NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
+                    }
+                    
+                
         }
+        return (afResponse.task != nil) ? afResponse.task!.taskIdentifier : -1
         
-        return nil
     }
 
     internal static func transformMethod(_ method: Method) -> Alamofire.HTTPMethod {

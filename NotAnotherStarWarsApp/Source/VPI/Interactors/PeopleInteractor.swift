@@ -13,13 +13,13 @@ class PeopleInteractor {
     
     let kommander = Kommander()
     
-    func getPeople() -> Kommand<[Person]> {
-        return kommander.makeKommand { () -> [Person] in
-            do {
-                return try DependencyProvider.people.getPeople()
-            } catch let error as PeopleError {
-                throw error
-            }
+    func getPeople(completion: @escaping ((Bool, [Person]?, Error?) -> Void)) -> Kommand<[Int]> {
+        return kommander.makeKommand { _ in
+            return [DependencyProvider.people.getPeople(completion: { (result, response, error) in
+                DispatchQueue.main.async {
+                    completion(result, response, error)
+                }
+            })]
         }
     }
     
@@ -29,6 +29,26 @@ class PeopleInteractor {
             sleep(3)
             return("Detail")
         }
+    }
+    
+    func uploadPhoto(actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Bool, Person?, Error?) -> Void)) -> Kommand<Int> {
+        return kommander.makeKommand { _ in
+            return DependencyProvider.people.uploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
+            actualProgress: { progress in
+                DispatchQueue.main.async {
+                   actualProgress(progress)
+                }
+            },
+            completion: { (result, response, error) in
+                DispatchQueue.main.async {
+                    completion(result, response, error)
+                }
+            })
+        }
+    }
+    
+    func cancelTask(identifier: Int) {
+        DependencyProvider.net.cancelTask(identifier: identifier)
     }
 
 }

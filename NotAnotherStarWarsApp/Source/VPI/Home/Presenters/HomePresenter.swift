@@ -29,17 +29,42 @@ class HomePresenter : HomePresenterProtocol {
     
     func viewLoaded() {
         getPeople()
+        uploadPhoto()
+        uploadPhoto()
+        uploadPhoto()
     }
     
     func getPeople() {
-        _ = peopleInteractor.getPeople()
-            .onSuccess({ [weak self] (arrayPerson) in
-                self?.homeVC?.updatePeople(arrayPerson)
-            })
-            .onError({ [weak self] (error) in
+        _ = peopleInteractor.getPeople(completion: { [weak self] (result, arrayPerson, error) in
+            if error == nil, let persons = arrayPerson {
+                self?.homeVC?.updatePeople(persons)
+            } else {
                 self?.homeVC?.stopTableViewActivityIndicator()
-            })
-            .execute()
+            }
+        })
+        .onSuccess({ [weak self] (identifier) in
+            
+        })
+        .onError({ [weak self] (error) in
+            
+        })
+        .execute()
+    }
+    
+    func uploadPhoto() {
+        _ = peopleInteractor.uploadPhoto(actualProgress: { (progress) in
+            
+        }, completion: { (result, response, error) in
+            
+        })
+        .onSuccess({ (identifier) in
+            print(identifier)
+            //self.peopleInteractor.cancelTask(identifier: identifier)
+        })
+        .onError({ (error) in
+            print(error)
+        })
+        .execute()
     }
 
 }
