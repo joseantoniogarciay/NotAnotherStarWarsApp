@@ -11,41 +11,16 @@ import Alamofire
 
 class AlamoFireAdapter {
 
-    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((NetworkResponse, Error?) -> Void)) -> Int {
+    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
         let afResponse = manager.request(
                 request.url,
                 method: self.transformMethod(request.method),
                 parameters:request.body.params,
                 encoding: self.transformParameterEncoding(request.body.parameterEncoding),
                 headers: request.headers).validate().responseString() { afResponse in
-                
-                    let netResponse = NetworkResponse(statusCode: 0, message: afResponse.result.value!, headers: [:])
-                    completion(netResponse, nil)
-                    
-                    switch afResponse.result {
-                    case .success(let responseString):
-                        if let responseData = afResponse.response {
-                            let headers = responseData.allHeaderFields
-                            
-                            var adaptedHeaders = [String:String]()
-                            for (headerKey, headerValue) in headers {
-                                let key = headerKey as! String
-                                let value = headerValue as! String
-                                adaptedHeaders[key] = value
-                            }
-
-                            completion(NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
-                        }
-                    case .failure(let error):
-                        guard let statusCode = afResponse.response?.statusCode else {
-                            completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
-                            return
-                        }
-                        completion(NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
-                    }
+                    self.processResponse(afResponse: afResponse, completion: completion)
         }
         return (afResponse.task != nil) ? afResponse.task!.taskIdentifier : -1
-        
     }
     
     static func adaptUploadRequest(_ request: Request, manager: Alamofire.SessionManager, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
@@ -76,13 +51,8 @@ class AlamoFireAdapter {
                 upload.uploadProgress(closure: { (progress) in
                     actualProgress(progress.fractionCompleted)
                 })
-                upload.validate().responseString() { response in
-                    var responseString = response.result.value
-                    if (responseString == nil) {
-                        responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
-                    }
-                    let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
-                    completion(networkResponse, nil)
+                upload.validate().responseString() { afResponse in
+                    self.processResponse(afResponse: afResponse, completion: completion)
                 }
             case .failure:
                 group.leave()
@@ -91,6 +61,32 @@ class AlamoFireAdapter {
         })
         group.wait()
         return (uploadRequest.task != nil) ? uploadRequest.task!.taskIdentifier : -1
+    }
+    
+    internal static func processResponse(afResponse: DataResponse<String>, completion: @escaping ((NetworkResponse?, Error?) -> Void)) {
+        switch afResponse.result {
+        case .success(let responseString):
+            if let responseData = afResponse.response {
+                let headers = responseData.allHeaderFields
+                
+                var adaptedHeaders = [String:String]()
+                for (headerKey, headerValue) in headers {
+                    let key = headerKey as! String
+                    let value = headerValue as! String
+                    adaptedHeaders[key] = value
+                }
+                
+                completion(NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
+            } else {
+                completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: ""))
+            }
+        case .failure(let error):
+            guard let statusCode = afResponse.response?.statusCode else {
+                completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
+                return
+            }
+            completion(NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
+        }
     }
 
     internal static func transformMethod(_ method: Method) -> Alamofire.HTTPMethod {
