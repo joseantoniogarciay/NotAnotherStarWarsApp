@@ -78,14 +78,14 @@ class AlamoFireAdapter {
                 
                 completion(NetworkResponse(statusCode: responseData.statusCode , message: responseString, headers: adaptedHeaders), nil)
             } else {
-                completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: ""))
+                completion(nil, NetError.error(statusErrorCode: 500, errorMessage: ""))
             }
         case .failure(let error):
             guard let statusCode = afResponse.response?.statusCode else {
-                completion(NetworkResponse(statusCode: 500, message: "", headers: [:]), NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
+                completion(nil, NetError.error(statusErrorCode: 500, errorMessage: error.localizedDescription))
                 return
             }
-            completion(NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
+            completion(nil, NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
         }
     }
 
