@@ -6,7 +6,6 @@ inhibit_all_warnings!
 target 'NotAnotherStarWarsApp' do
    pod 'Reusable'
    pod 'Alamofire', '~> 4.0'
-   pod 'Alamofire-Synchronous', '~> 4.0'
    pod 'ObjectMapper'
    pod 'Kommander'
    pod 'ResponseDetective', '~> 1.0'

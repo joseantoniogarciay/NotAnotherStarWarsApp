@@ -26,8 +26,8 @@ class PeopleEngine : PeopleProtocol {
         })
     }
     
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int {
-        return peopleDataRecover.uploadArchives(uploadUrl: uploadUrl, otherParameters: otherParameters, auth: auth, archives: archives, actualProgress: { progress in
+    func uploadPhotos(archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int {
+        return peopleDataRecover.uploadPhotos(archives: archives, actualProgress: { progress in
             actualProgress(progress)
         }) { (response, error) in
             

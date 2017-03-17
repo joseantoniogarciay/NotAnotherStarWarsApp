@@ -60,7 +60,7 @@ class RequestGenerator {
         return self
     }
 
-    func build () -> Request {
+    func build () -> Request? {
         let requestData = RequestBuilder { builder in
             builder.url = self.requestUrl
             builder.method = self.requestMethod
@@ -68,7 +68,7 @@ class RequestGenerator {
             builder.body = Body(parameterEncoding: self.paramEncoding, params: self.requestParams)
             builder.shouldCache = self.shouldCache
         }
-        return Request(builder:requestData)!
+        return Request(builder:requestData)
     }
 
 }

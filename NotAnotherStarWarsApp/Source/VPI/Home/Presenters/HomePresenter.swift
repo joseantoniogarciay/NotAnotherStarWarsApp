@@ -29,9 +29,9 @@ class HomePresenter : HomePresenterProtocol {
     
     func viewLoaded() {
         getPeople()
-        uploadPhoto()
-        uploadPhoto()
-        uploadPhoto()
+        uploadPhotos([])
+        uploadPhotos([])
+        uploadPhotos([])
     }
     
     func getPeople() {
@@ -52,8 +52,8 @@ class HomePresenter : HomePresenterProtocol {
         .execute()
     }
     
-    func uploadPhoto() {
-        _ = peopleInteractor.uploadPhoto(actualProgress: { (progress) in
+    func uploadPhotos(_ photos: [FormData]) {
+        _ = peopleInteractor.uploadPhotos(photos, actualProgress: { (progress) in
             
         }, completion: { (response, error) in
             

@@ -20,10 +20,11 @@ class PeopleDataRecover {
         let methodUrl = String(format: netSupport.api.PEOPLE)
         let dicHeader = ["Accept" : "application/json"]
         
-        let request = netSupport.getRequestGenerator()
+        guard let request = netSupport.getRequestGenerator()
             .method(.get).setUrl(methodUrl)
             .setRequestHeader(dicHeader)
             .build()
+            else { return -1 }
         
         return netSupport.netJsonMappableRequest(request, completion: { (pagePeopleNet:PagePeopleNet?, error) in
             do {
@@ -35,12 +36,19 @@ class PeopleDataRecover {
             }
         })
         
-        
     }
     
-    
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int {
-        return netSupport.netUploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
+    func uploadPhotos(archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Int {
+        let methodUrl = String(format: netSupport.api.UPLOAD)
+        let dicHeader = ["Accept" : "application/json", "Content-Type" : "multipart/form-data"]
+        
+        guard let request = netSupport.getRequestGenerator()
+            .method(.get).setUrl(methodUrl)
+            .setRequestHeader(dicHeader)
+            .build()
+            else { return -1 }
+        
+        return netSupport.netUploadArchives(request, archives: archives,
         actualProgress: { progress in
         
         },

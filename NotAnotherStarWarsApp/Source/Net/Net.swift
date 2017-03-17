@@ -10,7 +10,7 @@ import Foundation
 
 protocol Net {
     func launchRequest(_ request: Request, completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int
-    func uploadArchives(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int
+    func uploadRequest(_ request: Request, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int
     func isReachable() -> Bool
     func cancelTask(identifier: Int)
 }

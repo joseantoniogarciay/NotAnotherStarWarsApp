@@ -40,8 +40,8 @@ class NetSupport {
         })
     }
     
-    func netUploadArchives<T:Convertible>(uploadUrl: String, otherParameters:[String: String], auth : Bool, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((T?, Error?) -> Void)) -> Int {
-        return net.uploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
+    func netUploadArchives<T:Convertible>(_ request: Request, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((T?, Error?) -> Void)) -> Int {
+        return net.uploadRequest(request, archives: archives,
         actualProgress: { progress in
             actualProgress(progress)
         },

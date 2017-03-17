@@ -31,9 +31,9 @@ class PeopleInteractor {
         }
     }
     
-    func uploadPhoto(actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Kommand<Int> {
+    func uploadPhotos(_ photos: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Kommand<Int> {
         return kommander.makeKommand { _ in
-            return DependencyProvider.people.uploadArchives(uploadUrl: "", otherParameters: [:], auth: true, archives: [],
+            return DependencyProvider.people.uploadPhotos(archives: photos,
             actualProgress: { progress in
                 DispatchQueue.main.async {
                    actualProgress(progress)

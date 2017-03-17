@@ -43,11 +43,54 @@ class AlamoFireAdapter {
                         }
                         completion(NetworkResponse(statusCode: statusCode, message: "", headers: [:]), NetError.error(statusErrorCode: statusCode, errorMessage: error.localizedDescription))
                     }
-                    
-                
         }
         return (afResponse.task != nil) ? afResponse.task!.taskIdentifier : -1
         
+    }
+    
+    static func adaptUploadRequest(_ request: Request, manager: Alamofire.SessionManager, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
+        var uploadRequest : Alamofire.Request!
+        var urlRequest : URLRequest!
+        do {
+            guard let url = URL(string: request.url) else { return -1 }
+            urlRequest = try URLRequest(url: url, method: self.transformMethod(request.method), headers: request.headers)
+        } catch {
+            return -1
+        }
+        
+        let group = DispatchGroup()
+        group.enter()
+        
+        manager.upload(multipartFormData: { (multipartFormData) in
+            for archive in archives {
+                multipartFormData.append(archive.data, withName: archive.apiName, fileName: archive.fileName, mimeType: archive.mimeType)
+            }
+            for (key, value) in request.body.params {
+                multipartFormData.append(value.data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+        }, with: urlRequest, encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                uploadRequest = upload
+                group.leave()
+                upload.uploadProgress(closure: { (progress) in
+                    actualProgress(progress.fractionCompleted)
+                })
+                upload.validate().responseString() { response in
+                    var responseString = response.result.value
+                    if (responseString == nil) {
+                        responseString = NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) as String?
+                    }
+                    let networkResponse = NetworkResponse(statusCode: 0 , message: responseString!, headers: [:])
+                    completion(networkResponse, nil)
+                }
+            case .failure:
+                group.leave()
+                completion(nil, NetError.encodingError)
+            }
+        })
+        group.wait()
+        return (uploadRequest.task != nil) ? uploadRequest.task!.taskIdentifier : -1
     }
 
     internal static func transformMethod(_ method: Method) -> Alamofire.HTTPMethod {

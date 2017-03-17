@@ -11,8 +11,10 @@ import Foundation
 struct Api {
     
     let PEOPLE: String
+    let UPLOAD: String
 
     init (baseUrlDirectory: String) {
         self.PEOPLE = "\(baseUrlDirectory)\(NetApi.PEOPLE)"
+        self.UPLOAD = "\(baseUrlDirectory)\(NetApi.UPLOAD)"
     }
 }

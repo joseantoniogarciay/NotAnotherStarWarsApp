@@ -15,13 +15,9 @@
 		AB4440051E44953A00193697 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFA1E44953A00193697 /* Net.swift */; };
 		AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */; };
 		AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFD1E44953A00193697 /* NetAlamoFire.swift */; };
-		AB4440081E44953A00193697 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB443FFF1E44953A00193697 /* Api.swift */; };
-		AB4440091E44953A00193697 /* NetSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440001E44953A00193697 /* NetSupport.swift */; };
-		AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440011E44953A00193697 /* RequestGenerator.swift */; };
 		AB44400B1E44953A00193697 /* NetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440021E44953A00193697 /* NetError.swift */; };
 		AB44400C1E44953A00193697 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440031E44953A00193697 /* NetworkResponse.swift */; };
 		AB44400D1E44953A00193697 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440041E44953A00193697 /* Request.swift */; };
-		AB44400F1E4498F800193697 /* NetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB44400E1E4498F800193697 /* NetApi.swift */; };
 		AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440131E449BA600193697 /* PeopleProtocol.swift */; };
 		AB44401C1E449BA600193697 /* PeopleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440141E449BA600193697 /* PeopleError.swift */; };
 		AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440171E449BA600193697 /* PeopleDataRecover.swift */; };
@@ -58,6 +54,10 @@
 		AB8302821E425436004C3552 /* AppManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302811E425436004C3552 /* AppManagerTests.swift */; };
 		AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302841E4257BA004C3552 /* BaseViewController.swift */; };
 		AB8302871E42588C004C3552 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8302861E42588C004C3552 /* AppDelegateTests.swift */; };
+		AB9074431E7BDE82002C013F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074411E7BDE82002C013F /* Api.swift */; };
+		AB9074441E7BDE82002C013F /* NetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074421E7BDE82002C013F /* NetApi.swift */; };
+		AB9074461E7BDF37002C013F /* NetSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074451E7BDF37002C013F /* NetSupport.swift */; };
+		AB9074481E7BDF96002C013F /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074471E7BDF96002C013F /* RequestGenerator.swift */; };
 		AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90F7501E696139009BD436 /* PrintProduction.swift */; };
 		AB924BE01E4B367B009781FF /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */; };
 		AB924BE31E4B3A2F009781FF /* PeopleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */; };
@@ -99,13 +99,9 @@
 		AB443FFA1E44953A00193697 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		AB443FFC1E44953A00193697 /* AlamoFireAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamoFireAdapter.swift; sourceTree = "<group>"; };
 		AB443FFD1E44953A00193697 /* NetAlamoFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetAlamoFire.swift; sourceTree = "<group>"; };
-		AB443FFF1E44953A00193697 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		AB4440001E44953A00193697 /* NetSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetSupport.swift; sourceTree = "<group>"; };
-		AB4440011E44953A00193697 /* RequestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
 		AB4440021E44953A00193697 /* NetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetError.swift; sourceTree = "<group>"; };
 		AB4440031E44953A00193697 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		AB4440041E44953A00193697 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		AB44400E1E4498F800193697 /* NetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetApi.swift; sourceTree = "<group>"; };
 		AB4440131E449BA600193697 /* PeopleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleProtocol.swift; sourceTree = "<group>"; };
 		AB4440141E449BA600193697 /* PeopleError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleError.swift; sourceTree = "<group>"; };
 		AB4440171E449BA600193697 /* PeopleDataRecover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDataRecover.swift; sourceTree = "<group>"; };
@@ -146,6 +142,10 @@
 		AB8302811E425436004C3552 /* AppManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManagerTests.swift; sourceTree = "<group>"; };
 		AB8302841E4257BA004C3552 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AB8302861E42588C004C3552 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		AB9074411E7BDE82002C013F /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		AB9074421E7BDE82002C013F /* NetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetApi.swift; sourceTree = "<group>"; };
+		AB9074451E7BDF37002C013F /* NetSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetSupport.swift; sourceTree = "<group>"; };
+		AB9074471E7BDF96002C013F /* RequestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
 		AB90F7501E696139009BD436 /* PrintProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintProduction.swift; sourceTree = "<group>"; };
 		AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleInteractor.swift; sourceTree = "<group>"; };
@@ -219,6 +219,10 @@
 		AB2251161E4889F200EDA5D2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AB9074411E7BDE82002C013F /* Api.swift */,
+				AB9074421E7BDE82002C013F /* NetApi.swift */,
+				AB9074451E7BDF37002C013F /* NetSupport.swift */,
+				AB9074471E7BDF96002C013F /* RequestGenerator.swift */,
 				AB469D521E68371E003856B3 /* JSONable */,
 				AB2251171E4889F200EDA5D2 /* Transformable.swift */,
 				AB469D501E6834FA003856B3 /* Convertible.swift */,
@@ -241,7 +245,6 @@
 			children = (
 				AB443FFA1E44953A00193697 /* Net.swift */,
 				AB443FFB1E44953A00193697 /* NetAlamoFire */,
-				AB443FFE1E44953A00193697 /* NetDirectory */,
 				AB4440021E44953A00193697 /* NetError.swift */,
 				AB4440031E44953A00193697 /* NetworkResponse.swift */,
 				AB4440041E44953A00193697 /* Request.swift */,
@@ -257,17 +260,6 @@
 				AB443FFD1E44953A00193697 /* NetAlamoFire.swift */,
 			);
 			path = NetAlamoFire;
-			sourceTree = "<group>";
-		};
-		AB443FFE1E44953A00193697 /* NetDirectory */ = {
-			isa = PBXGroup;
-			children = (
-				AB443FFF1E44953A00193697 /* Api.swift */,
-				AB44400E1E4498F800193697 /* NetApi.swift */,
-				AB4440001E44953A00193697 /* NetSupport.swift */,
-				AB4440011E44953A00193697 /* RequestGenerator.swift */,
-			);
-			path = NetDirectory;
 			sourceTree = "<group>";
 		};
 		AB4440101E449BA600193697 /* Core */ = {
@@ -971,28 +963,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */,
-				AB4440091E44953A00193697 /* NetSupport.swift in Sources */,
 				AB4440061E44953A00193697 /* AlamoFireAdapter.swift in Sources */,
 				AB4440051E44953A00193697 /* Net.swift in Sources */,
 				AB02318D1E696798006B6433 /* AppStoryboard.swift in Sources */,
 				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
+				AB9074431E7BDE82002C013F /* Api.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
+				AB9074441E7BDE82002C013F /* NetApi.swift in Sources */,
 				AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */,
+				AB9074481E7BDF96002C013F /* RequestGenerator.swift in Sources */,
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
 				AB469D511E6834FA003856B3 /* Convertible.swift in Sources */,
-				AB44400F1E4498F800193697 /* NetApi.swift in Sources */,
 				AB2251181E4889F200EDA5D2 /* Transformable.swift in Sources */,
 				ABFE4B2A1E4DBA660073BDDA /* NavigationManager.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
-				AB4440081E44953A00193697 /* Api.swift in Sources */,
+				AB9074461E7BDF37002C013F /* NetSupport.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
 				AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */,
 				AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */,
 				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
 				AB469D551E68371E003856B3 /* JSONable.swift in Sources */,
 				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
-				AB44400A1E44953A00193697 /* RequestGenerator.swift in Sources */,
 				AB6597661E76F8DE004D2479 /* FormData.swift in Sources */,
 				AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */,
 				AB924BE31E4B3A2F009781FF /* PeopleInteractor.swift in Sources */,

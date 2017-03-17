@@ -45,7 +45,7 @@ class RequestBuilder {
 
 struct Body {
     let parameterEncoding: ParameterEncoding
-    let params: [String: AnyObject]?
+    let params: [String: AnyObject]
 
     init(parameterEncoding: ParameterEncoding, params: [String: AnyObject]) {
         self.parameterEncoding = parameterEncoding

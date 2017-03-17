@@ -19,3 +19,8 @@ extension NetApi {
 extension NetApi {
     static let PLANETS = "planets/";
 }
+
+// MARK : UPLOAD FAKE
+extension NetApi {
+    static let UPLOAD = "upload/fake";
+}
