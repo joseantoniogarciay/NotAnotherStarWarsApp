@@ -32,7 +32,7 @@ class PeopleDataRecover {
                 let arrayPerson : [Person] = try PeopleParser.parsePagePeople(peopleNet)
                 completion(arrayPerson, nil)
             } catch {
-               completion(nil, PeopleError.net)
+               completion(nil, PeopleError.parserError)
             }
         })
     }
@@ -57,13 +57,9 @@ class PeopleDataRecover {
         
         },
         completion: { (response:PersonNet?, error) in
-            //TODO: Parser (real)
-            let person = Person.Builder()
-                .setName("")
-                .setHeight("")
-                .setMass("")
-                .build()
-            completion(person, error)
+            guard let personNet = response else { completion(nil, PeopleError.net); return }
+            guard let person = PersonTransformer.transform(from: personNet) else { completion(nil, PeopleError.transformError); return } //TODO: Move to parse and remove transformError
+            completion(person, nil)
         })
     }
     
@@ -85,7 +81,7 @@ class PeopleDataRecover {
                 let arrayPerson : [Person] = try PeopleParser.parsePagePeople(peopleNet)
                 completion(arrayPerson, nil)
             } catch {
-                completion(nil, PeopleError.net)
+                completion(nil, PeopleError.parserError)
             }
         })
     }

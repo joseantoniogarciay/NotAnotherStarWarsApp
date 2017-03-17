@@ -11,4 +11,6 @@ import Foundation
 enum PeopleError : Error {
     case net
     case nullResponse
+    case transformError
+    case parserError
 }
