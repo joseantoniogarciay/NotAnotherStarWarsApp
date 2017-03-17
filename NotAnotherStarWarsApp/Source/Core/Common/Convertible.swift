@@ -10,5 +10,5 @@ import Foundation
 
 protocol Convertible {
     static func instance<T:Convertible>(_ JSONString: String) -> T?
-    static func toJSONString() -> String
+    static func toJSONString() -> String?
 }

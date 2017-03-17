@@ -29,9 +29,15 @@ class HomePresenter : HomePresenterProtocol {
     
     func viewLoaded() {
         getPeople()
-        uploadPhotos([])
-        uploadPhotos([])
-        uploadPhotos([])
+        let photo = Photo.Builder()
+        .setData(Data())
+        .setMimeType("je")
+        .setName("lolz").build()
+        guard let photoToSend = photo else { return }
+        
+        uploadPhotos([photoToSend])
+        uploadPhotos([photoToSend])
+        uploadPhotos([photoToSend])
     }
     
     func getPeople() {
@@ -52,7 +58,7 @@ class HomePresenter : HomePresenterProtocol {
         .execute()
     }
     
-    func uploadPhotos(_ photos: [FormData]) {
+    func uploadPhotos(_ photos: [Photo]) {
         _ = peopleInteractor.uploadPhotos(photos, actualProgress: { (progress) in
             
         }, completion: { (response, error) in

@@ -29,7 +29,6 @@
 		AB469D511E6834FA003856B3 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D501E6834FA003856B3 /* Convertible.swift */; };
 		AB469D551E68371E003856B3 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D531E68371E003856B3 /* JSONable.swift */; };
 		AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */; };
-		AB469D5C1E684043003856B3 /* PersonTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D5B1E684043003856B3 /* PersonTransformer.swift */; };
 		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
 		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
 		AB482E8A1E43A4010003E085 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB482E861E43A4010003E085 /* People.storyboard */; };
@@ -58,6 +57,12 @@
 		AB9074441E7BDE82002C013F /* NetApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074421E7BDE82002C013F /* NetApi.swift */; };
 		AB9074461E7BDF37002C013F /* NetSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074451E7BDF37002C013F /* NetSupport.swift */; };
 		AB9074481E7BDF96002C013F /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074471E7BDF96002C013F /* RequestGenerator.swift */; };
+		AB90744B1E7BEFDE002C013F /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90744A1E7BEFDE002C013F /* Photo.swift */; };
+		AB90744F1E7BF4F5002C013F /* PersonTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90744D1E7BF4F5002C013F /* PersonTransformer.swift */; };
+		AB9074511E7BF54B002C013F /* FormDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074501E7BF54B002C013F /* FormDataTransformer.swift */; };
+		AB9074541E7BFE8B002C013F /* ObjectTestNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074531E7BFE8B002C013F /* ObjectTestNet.swift */; };
+		AB9074571E7BFF8C002C013F /* ObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074561E7BFF8C002C013F /* ObjectTest.swift */; };
+		AB9074591E7C0057002C013F /* ObjectTestNetTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9074581E7C0057002C013F /* ObjectTestNetTransformer.swift */; };
 		AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90F7501E696139009BD436 /* PrintProduction.swift */; };
 		AB924BE01E4B367B009781FF /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */; };
 		AB924BE31E4B3A2F009781FF /* PeopleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */; };
@@ -113,7 +118,6 @@
 		AB469D501E6834FA003856B3 /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		AB469D531E68371E003856B3 /* JSONable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
 		AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONableObjectMapper.swift; sourceTree = "<group>"; };
-		AB469D5B1E684043003856B3 /* PersonTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTransformer.swift; sourceTree = "<group>"; };
 		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
 		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
 		AB482E861E43A4010003E085 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
@@ -146,6 +150,12 @@
 		AB9074421E7BDE82002C013F /* NetApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetApi.swift; sourceTree = "<group>"; };
 		AB9074451E7BDF37002C013F /* NetSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetSupport.swift; sourceTree = "<group>"; };
 		AB9074471E7BDF96002C013F /* RequestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
+		AB90744A1E7BEFDE002C013F /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		AB90744D1E7BF4F5002C013F /* PersonTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTransformer.swift; sourceTree = "<group>"; };
+		AB9074501E7BF54B002C013F /* FormDataTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTransformer.swift; sourceTree = "<group>"; };
+		AB9074531E7BFE8B002C013F /* ObjectTestNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTestNet.swift; sourceTree = "<group>"; };
+		AB9074561E7BFF8C002C013F /* ObjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTest.swift; sourceTree = "<group>"; };
+		AB9074581E7C0057002C013F /* ObjectTestNetTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTestNetTransformer.swift; sourceTree = "<group>"; };
 		AB90F7501E696139009BD436 /* PrintProduction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintProduction.swift; sourceTree = "<group>"; };
 		AB924BDF1E4B367B009781FF /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		AB924BE21E4B3A2F009781FF /* PeopleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleInteractor.swift; sourceTree = "<group>"; };
@@ -311,6 +321,8 @@
 		AB4440211E449BED00193697 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AB9074551E7BFF8C002C013F /* ObjectTest */,
+				AB9074491E7BEFC7002C013F /* Photo */,
 				AB4440221E449C2F00193697 /* People */,
 			);
 			path = Domain;
@@ -330,6 +342,7 @@
 				AB469D5A1E684043003856B3 /* Transformers */,
 				AB4440261E449F4F00193697 /* PagePeopleNet.swift */,
 				AB4440271E449F4F00193697 /* PersonNet.swift */,
+				AB9074521E7BFE01002C013F /* Params */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,7 +359,8 @@
 		AB469D5A1E684043003856B3 /* Transformers */ = {
 			isa = PBXGroup;
 			children = (
-				AB469D5B1E684043003856B3 /* PersonTransformer.swift */,
+				AB90744C1E7BF4F5002C013F /* ToDomain */,
+				AB90744E1E7BF4F5002C013F /* ToNet */,
 			);
 			path = Transformers;
 			sourceTree = "<group>";
@@ -603,6 +617,47 @@
 				AB8302841E4257BA004C3552 /* BaseViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB9074491E7BEFC7002C013F /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				AB90744A1E7BEFDE002C013F /* Photo.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		AB90744C1E7BF4F5002C013F /* ToDomain */ = {
+			isa = PBXGroup;
+			children = (
+				AB90744D1E7BF4F5002C013F /* PersonTransformer.swift */,
+			);
+			path = ToDomain;
+			sourceTree = "<group>";
+		};
+		AB90744E1E7BF4F5002C013F /* ToNet */ = {
+			isa = PBXGroup;
+			children = (
+				AB9074581E7C0057002C013F /* ObjectTestNetTransformer.swift */,
+				AB9074501E7BF54B002C013F /* FormDataTransformer.swift */,
+			);
+			path = ToNet;
+			sourceTree = "<group>";
+		};
+		AB9074521E7BFE01002C013F /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				AB9074531E7BFE8B002C013F /* ObjectTestNet.swift */,
+			);
+			path = Params;
+			sourceTree = "<group>";
+		};
+		AB9074551E7BFF8C002C013F /* ObjectTest */ = {
+			isa = PBXGroup;
+			children = (
+				AB9074561E7BFF8C002C013F /* ObjectTest.swift */,
+			);
+			path = ObjectTest;
 			sourceTree = "<group>";
 		};
 		AB924BE11E4B3A2F009781FF /* Interactors */ = {
@@ -968,8 +1023,10 @@
 				AB02318D1E696798006B6433 /* AppStoryboard.swift in Sources */,
 				AB44401B1E449BA600193697 /* PeopleProtocol.swift in Sources */,
 				AB9074431E7BDE82002C013F /* Api.swift in Sources */,
+				AB9074571E7BFF8C002C013F /* ObjectTest.swift in Sources */,
 				AB83027C1E42528D004C3552 /* HomePresenter.swift in Sources */,
 				AB9074441E7BDE82002C013F /* NetApi.swift in Sources */,
+				AB9074591E7C0057002C013F /* ObjectTestNetTransformer.swift in Sources */,
 				AB90F7511E696139009BD436 /* PrintProduction.swift in Sources */,
 				AB9074481E7BDF96002C013F /* RequestGenerator.swift in Sources */,
 				AB4440071E44953A00193697 /* NetAlamoFire.swift in Sources */,
@@ -977,11 +1034,14 @@
 				AB2251181E4889F200EDA5D2 /* Transformable.swift in Sources */,
 				ABFE4B2A1E4DBA660073BDDA /* NavigationManager.swift in Sources */,
 				AB8302801E4252F2004C3552 /* AppManager.swift in Sources */,
+				AB90744F1E7BF4F5002C013F /* PersonTransformer.swift in Sources */,
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
 				AB9074461E7BDF37002C013F /* NetSupport.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
 				AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */,
 				AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */,
+				AB9074541E7BFE8B002C013F /* ObjectTestNet.swift in Sources */,
+				AB90744B1E7BEFDE002C013F /* Photo.swift in Sources */,
 				AB44401D1E449BA600193697 /* PeopleDataRecover.swift in Sources */,
 				AB469D551E68371E003856B3 /* JSONable.swift in Sources */,
 				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
@@ -991,13 +1051,13 @@
 				AB4837A91E5B0A5900F54446 /* PeopleDetailLocalizable.swift in Sources */,
 				AB44401F1E449BA600193697 /* PeopleParser.swift in Sources */,
 				AB4440201E449BA600193697 /* PeopleEngine.swift in Sources */,
+				AB9074511E7BF54B002C013F /* FormDataTransformer.swift in Sources */,
 				AB44400B1E44953A00193697 /* NetError.swift in Sources */,
 				AB83026C1E425116004C3552 /* AppDelegate.swift in Sources */,
 				AB44401C1E449BA600193697 /* PeopleError.swift in Sources */,
 				AB4837CA1E5B153B00F54446 /* BaseLocalizable.swift in Sources */,
 				AB44400C1E44953A00193697 /* NetworkResponse.swift in Sources */,
 				AB8302791E42525E004C3552 /* HomeViewController.swift in Sources */,
-				AB469D5C1E684043003856B3 /* PersonTransformer.swift in Sources */,
 				AB924BE91E4B3C1E009781FF /* PersonTableViewCell.swift in Sources */,
 				AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */,
 				AB8302851E4257BA004C3552 /* BaseViewController.swift in Sources */,

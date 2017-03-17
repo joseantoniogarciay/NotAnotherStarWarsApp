@@ -70,7 +70,7 @@ struct PersonNet : Mappable, Convertible {
         return PersonNet(JSONString: JSONString) as? T
     }
     
-    static func toJSONString() -> String {
+    static func toJSONString() -> String? {
         return self.toJSONString()
     }
     
