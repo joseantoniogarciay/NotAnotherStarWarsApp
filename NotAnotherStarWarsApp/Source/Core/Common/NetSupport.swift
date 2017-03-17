@@ -27,14 +27,14 @@ class NetSupport {
         return net.launchRequest(request, completion: { (netResponse, error) in
             guard let response = netResponse else { completion(nil, error); return }
             guard response.message != "" else {
-                 completion(nil, error)
+                 completion(nil, NetError.emptyResponse)
                 return
             }
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
                 completion(object, nil)
-            } catch {
-                completion(nil, error)
+            } catch (let mappingError) {
+                completion(nil, mappingError)
             }
             
         })
@@ -47,11 +47,15 @@ class NetSupport {
         },
         completion: { (netResponse, error) in
             guard let response = netResponse else { completion(nil, error); return }
+            guard response.message != "" else {
+                completion(nil, NetError.emptyResponse)
+                return
+            }
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
                 completion(object, nil)
-            } catch {
-                completion(nil, error)
+            } catch (let mappingError) {
+                completion(nil, mappingError)
             }
         })
     }
