@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="111.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psg-A8-Rqs">
@@ -49,22 +49,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ugt-ah-7ie">
-                                <rect key="frame" x="276" y="38" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lde-PA-Znz" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="266" y="33" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OR1-SJ-Guk"/>
+                                    <constraint firstAttribute="width" constant="30" id="T89-3H-CKE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="77g-AW-LLl" firstAttribute="centerY" secondItem="9fG-f4-n9Z" secondAttribute="centerY" id="2aJ-pJ-6bJ"/>
-                            <constraint firstItem="Ugt-ah-7ie" firstAttribute="centerY" secondItem="Psg-A8-Rqs" secondAttribute="centerY" id="6Y2-7c-O2T"/>
                             <constraint firstItem="77g-AW-LLl" firstAttribute="leading" secondItem="9fG-f4-n9Z" secondAttribute="trailing" constant="25" id="7P0-be-l04"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="77g-AW-LLl" secondAttribute="trailing" constant="28" id="CfE-QJ-ICw"/>
                             <constraint firstAttribute="bottom" secondItem="9fG-f4-n9Z" secondAttribute="bottom" constant="22" id="LCI-Xc-usN"/>
                             <constraint firstItem="uOU-Y8-YwQ" firstAttribute="top" secondItem="Psg-A8-Rqs" secondAttribute="top" constant="14" id="QN1-cC-24X"/>
                             <constraint firstAttribute="trailing" secondItem="uOU-Y8-YwQ" secondAttribute="trailing" constant="8" id="Y0u-rE-Jpl"/>
+                            <constraint firstAttribute="trailing" secondItem="lde-PA-Znz" secondAttribute="trailing" constant="8" id="Yhf-nc-Goi"/>
                             <constraint firstItem="9fG-f4-n9Z" firstAttribute="top" secondItem="uOU-Y8-YwQ" secondAttribute="bottom" constant="18" id="aAd-YK-CT1"/>
+                            <constraint firstItem="lde-PA-Znz" firstAttribute="centerY" secondItem="Psg-A8-Rqs" secondAttribute="centerY" id="fgp-gc-Ly9"/>
                             <constraint firstItem="9fG-f4-n9Z" firstAttribute="leading" secondItem="uOU-Y8-YwQ" secondAttribute="leading" id="ieO-Ob-duB"/>
-                            <constraint firstAttribute="trailing" secondItem="Ugt-ah-7ie" secondAttribute="trailing" constant="8" id="r3m-YQ-Xh7"/>
                             <constraint firstItem="uOU-Y8-YwQ" firstAttribute="leading" secondItem="Psg-A8-Rqs" secondAttribute="leading" constant="8" id="yTP-U8-O3Y"/>
                         </constraints>
                     </view>
@@ -78,7 +83,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="activityIndicator" destination="Ugt-ah-7ie" id="gS0-lv-yRW"/>
+                <outlet property="activityIndicator" destination="lde-PA-Znz" id="bjN-k6-utD"/>
                 <outlet property="heightLabel" destination="9fG-f4-n9Z" id="d9E-aJ-E8Y"/>
                 <outlet property="massLabel" destination="77g-AW-LLl" id="hht-PV-ueS"/>
                 <outlet property="nameLabel" destination="uOU-Y8-YwQ" id="jGa-eP-HxU"/>

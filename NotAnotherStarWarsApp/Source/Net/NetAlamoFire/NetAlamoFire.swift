@@ -31,14 +31,24 @@ class NetAlamoFire : Net {
         Foundation.URLCache.shared = URLCache
     }
 
-    func launchRequest(_ request: Request) throws -> NetworkResponse {
+    func launchRequest(_ request: Request, completion: @escaping ((NetworkResponse?, NetError?) -> Void)) -> Int {
         if !request.shouldCache {
             self.manager.session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         }
-        do {
-            return try AlamoFireAdapter.adaptRequest(request, manager:self.manager)
-        } catch {
-            throw error
+        return AlamoFireAdapter.adaptRequest(request, manager:self.manager, completion: completion)
+    }
+    
+    func uploadRequest(_ request: Request, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, NetError?) -> Void)) -> Int {
+        return AlamoFireAdapter.adaptUploadRequest(request, manager:self.manager, archives: archives, actualProgress:actualProgress, completion: completion)
+    }
+
+    func cancelTask(identifier: Int) {
+        self.manager.session.getAllTasks { (tasks: [URLSessionTask]) in
+            if let task = tasks.filter({ (task: URLSessionTask) -> Bool in
+                return task.taskIdentifier == identifier
+            }).first, task.state == .running {
+                task.cancel()
+            }
         }
     }
     

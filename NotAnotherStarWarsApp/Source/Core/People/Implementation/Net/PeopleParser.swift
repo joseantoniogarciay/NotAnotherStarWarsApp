@@ -11,9 +11,9 @@ import Foundation
 class PeopleParser {
     
     // MARK: parsePagePeople
-    static func parsePagePeople(_ dependencies: PagePeopleNet) throws -> [Person] {
+    static func parsePagePeople(_ pagePeopleNet: PagePeopleNet) throws -> [Person] {
         
-        guard let arrayPeopleNet = dependencies.arrayPeople else {
+        guard let arrayPeopleNet = pagePeopleNet.arrayPeople else {
             throw PeopleError.nullResponse
         }
         
@@ -22,6 +22,16 @@ class PeopleParser {
         })
         
         return arrayPeople
+    }
+    
+    // MARK: parsePerson
+    static func parsePerson(_ personNet: PersonNet) throws -> Person {
+        
+        guard let person = PersonTransformer.transform(from: personNet) else {
+            throw PeopleError.parserError
+        }
+        
+        return person
     }
     
 }

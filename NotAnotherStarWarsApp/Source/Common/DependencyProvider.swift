@@ -14,6 +14,6 @@ class DependencyProvider {
     
     static let netSupport = NetSupport(net: DependencyProvider.net, api: Api(baseUrlDirectory: "http://swapi.co/api/"), jsonable: JSONableObjectMapper())
     
-    static let people = PeopleEngine(peopleDataRecover: PeopleDataRecover(netSupport: DependencyProvider.netSupport))
+    static let people = PeopleEngine(netSupport: DependencyProvider.netSupport)
 
 }

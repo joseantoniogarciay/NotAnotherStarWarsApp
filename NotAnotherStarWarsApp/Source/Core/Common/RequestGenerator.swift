@@ -32,8 +32,9 @@ class RequestGenerator {
         return self
     }
     
-    func addBody(params : String) -> Self {
-        if let data = params.data(using: .utf8) {
+    func addBody(params : String?) -> Self {
+        guard let parameters = params else { return self }
+        if let data = parameters.data(using: .utf8) {
             do {
                 guard let dic =  try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
                     else { return self }
@@ -68,7 +69,7 @@ class RequestGenerator {
             builder.body = Body(parameterEncoding: self.paramEncoding, params: self.requestParams)
             builder.shouldCache = self.shouldCache
         }
-        return Request(builder:requestData)!
+        return Request(builder:requestData)
     }
 
 }

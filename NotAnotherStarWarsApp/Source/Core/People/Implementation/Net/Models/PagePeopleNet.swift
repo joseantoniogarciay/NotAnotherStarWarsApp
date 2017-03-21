@@ -34,7 +34,7 @@ struct PagePeopleNet : Mappable, Convertible {
         return PagePeopleNet(JSONString: JSONString) as? T
     }
     
-    static func toJSONString() -> String {
+    static func toJSONString() -> String? {
         return self.toJSONString()
     }
     

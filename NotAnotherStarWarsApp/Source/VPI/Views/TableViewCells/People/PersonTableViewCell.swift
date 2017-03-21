@@ -8,13 +8,19 @@
 
 import UIKit
 import Reusable
+import NVActivityIndicatorView
 
 class PersonTableViewCell: UITableViewCell, NibReusable {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var massLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
+    
+    override func awakeFromNib() {
+        activityIndicator.color = .black
+        activityIndicator.type = .ballClipRotate
+    }
     
     override func prepareForReuse() {
         activityIndicator.stopAnimating()

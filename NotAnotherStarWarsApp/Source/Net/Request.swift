@@ -15,17 +15,12 @@ struct Request {
     let headers: Dictionary<String, String>
     let body: Body
 
-    init?(builder: RequestBuilder) {
-        if let url = builder.url, let method = builder.method, let shouldCache = builder.shouldCache,
-           let headers = builder.headers, let body = builder.body {
-            self.url = url
-            self.method = method
-            self.shouldCache = shouldCache
-            self.headers = headers
-            self.body = body
-        } else {
-            return nil
-        }
+    init(builder: RequestBuilder) {
+        self.url = builder.url ?? ""
+        self.method = builder.method ?? .get
+        self.shouldCache = builder.shouldCache ?? false
+        self.headers = builder.headers ?? [:]
+        self.body = builder.body ?? Body(parameterEncoding: .url, params: [:])
     }
 }
 
@@ -36,16 +31,14 @@ class RequestBuilder {
     var headers: Dictionary<String, String>?
     var body: Body?
 
-    typealias BuilderClosure = (RequestBuilder) -> ()
-
-    init(buildClosure: BuilderClosure) {
+    init(buildClosure: (RequestBuilder) -> ()) {
         buildClosure(self)
     }
 }
 
 struct Body {
     let parameterEncoding: ParameterEncoding
-    let params: [String: AnyObject]?
+    let params: [String: AnyObject]
 
     init(parameterEncoding: ParameterEncoding, params: [String: AnyObject]) {
         self.parameterEncoding = parameterEncoding
