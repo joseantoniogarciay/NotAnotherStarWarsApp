@@ -23,7 +23,7 @@ class NetSupport {
         return RequestGenerator()
     }
 
-    func netJsonMappableRequest<T:Convertible>(_ request: Request, completion: @escaping ((T?, Error?) -> Void)) -> Int {
+    func netJsonMappableRequest<T:Convertible>(_ request: Request, completion: @escaping ((T?, NetError?) -> Void)) -> Int {
         return net.launchRequest(request, completion: { (netResponse, error) in
             guard let response = netResponse else { completion(nil, error); return }
             guard response.message != "" else {
@@ -33,14 +33,14 @@ class NetSupport {
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
                 completion(object, nil)
-            } catch (let mappingError) {
-                completion(nil, mappingError)
+            } catch {
+                completion(nil, NetError.mappingError)
             }
             
         })
     }
     
-    func netUploadArchives<T:Convertible>(_ request: Request, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((T?, Error?) -> Void)) -> Int {
+    func netUploadArchives<T:Convertible>(_ request: Request, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((T?, NetError?) -> Void)) -> Int {
         return net.uploadRequest(request, archives: archives,
         actualProgress: { progress in
             actualProgress(progress)
@@ -54,8 +54,8 @@ class NetSupport {
             do {
                 let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
                 completion(object, nil)
-            } catch (let mappingError) {
-                completion(nil, mappingError)
+            } catch {
+                completion(nil, NetError.mappingError)
             }
         })
     }

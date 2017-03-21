@@ -11,7 +11,7 @@ import Alamofire
 
 class AlamoFireAdapter {
 
-    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
+    static func adaptRequest(_ request: Request, manager: Alamofire.SessionManager, completion: @escaping ((NetworkResponse?, NetError?) -> Void)) -> Int {
         let afResponse = manager.request(
                 request.url,
                 method: self.transformMethod(request.method),
@@ -23,7 +23,7 @@ class AlamoFireAdapter {
         return (afResponse.task != nil) ? afResponse.task!.taskIdentifier : -1
     }
     
-    static func adaptUploadRequest(_ request: Request, manager: Alamofire.SessionManager, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, Error?) -> Void)) -> Int {
+    static func adaptUploadRequest(_ request: Request, manager: Alamofire.SessionManager, archives: [FormData], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((NetworkResponse?, NetError?) -> Void)) -> Int {
         var uploadRequest : Alamofire.Request!
         var urlRequest : URLRequest!
         do {
@@ -63,7 +63,7 @@ class AlamoFireAdapter {
         return (uploadRequest.task != nil) ? uploadRequest.task!.taskIdentifier : -1
     }
     
-    internal static func processResponse(afResponse: DataResponse<String>, completion: @escaping ((NetworkResponse?, Error?) -> Void)) {
+    internal static func processResponse(afResponse: DataResponse<String>, completion: @escaping ((NetworkResponse?, NetError?) -> Void)) {
         switch afResponse.result {
         case .success(let responseString):
             if let responseData = afResponse.response {

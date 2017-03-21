@@ -9,8 +9,7 @@
 import Foundation
 
 enum PeopleError : Error {
-    case net
+    case net(underlying: NetError?)
     case nullResponse
-    case transformError
     case parserError
 }
