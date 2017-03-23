@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "Kommander.h"
 
 FOUNDATION_EXPORT double KommanderVersionNumber;
 FOUNDATION_EXPORT const unsigned char KommanderVersionString[];
