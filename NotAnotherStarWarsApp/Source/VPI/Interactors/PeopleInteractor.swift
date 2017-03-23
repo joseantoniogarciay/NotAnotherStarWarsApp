@@ -13,13 +13,13 @@ class PeopleInteractor {
     
     let kommander = Kommander()
     
-    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Kommand<[Int]> {
+    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Kommand<Int> {
         return kommander.makeKommand { _ in
-            return [DependencyProvider.people.getPeople(completion: { (response, error) in
+            return DependencyProvider.people.getPeople(completion: { (response, error) in
                 DispatchQueue.main.async {
                     completion(response, error)
                 }
-            })]
+            })
         }
     }
     
