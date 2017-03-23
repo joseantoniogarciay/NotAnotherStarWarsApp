@@ -29,15 +29,7 @@ class HomePresenter : HomePresenterProtocol {
     
     func viewLoaded() {
         getPeople()
-        let photo = Photo.Builder()
-        .setData(Data())
-        .setMimeType("je")
-        .setName("lolz").build()
-        guard let photoToSend = photo else { return }
-        
-        uploadPhotos([photoToSend])
-        uploadPhotos([photoToSend])
-        uploadPhotos([photoToSend])
+        testUploadPhotoFake()
     }
     
     func getPeople() {
@@ -58,15 +50,35 @@ class HomePresenter : HomePresenterProtocol {
         .execute()
     }
     
+    func testUploadPhotoFake() {
+        var imageData = Data()
+        let image : UIImage? = #imageLiteral(resourceName: "Vader")
+        if let imageVader = image, let data = UIImageJPEGRepresentation(imageVader, 1) {
+            imageData = data
+        }
+        let photo = Photo.Builder()
+            .setData(imageData)
+            .setMimeType("je")
+            .setName("lolz").build()
+        guard let photoToSend = photo else { return }
+        
+        //Testing/Showing fake upload (only conceptual)
+        uploadPhotos([photoToSend])
+        uploadPhotos([photoToSend])
+        uploadPhotos([photoToSend])
+    }
+    
     func uploadPhotos(_ photos: [Photo]) {
         _ = peopleInteractor.uploadPhotos(photos, actualProgress: { (progress) in
             
         }, completion: { (response, error) in
-            
+            if let err = error {
+                print(err)
+            }
         })
         .onSuccess({ (identifier) in
             print(identifier)
-            //self.peopleInteractor.cancelTask(identifier: identifier)
+            self.peopleInteractor.cancelTask(identifier: identifier)
         })
         .onError({ (error) in
             let description = error?.localizedDescription ?? ""
