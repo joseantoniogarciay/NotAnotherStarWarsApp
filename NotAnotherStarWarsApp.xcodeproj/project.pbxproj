@@ -26,8 +26,6 @@
 		AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440261E449F4F00193697 /* PagePeopleNet.swift */; };
 		AB4440291E449F4F00193697 /* PersonNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4440271E449F4F00193697 /* PersonNet.swift */; };
 		AB469D511E6834FA003856B3 /* Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D501E6834FA003856B3 /* Convertible.swift */; };
-		AB469D551E68371E003856B3 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D531E68371E003856B3 /* JSONable.swift */; };
-		AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */; };
 		AB482E871E43A4010003E085 /* PeopleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */; };
 		AB482E891E43A4010003E085 /* PeopleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */; };
 		AB482E8A1E43A4010003E085 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB482E861E43A4010003E085 /* People.storyboard */; };
@@ -114,8 +112,6 @@
 		AB4440261E449F4F00193697 /* PagePeopleNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePeopleNet.swift; sourceTree = "<group>"; };
 		AB4440271E449F4F00193697 /* PersonNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNet.swift; sourceTree = "<group>"; };
 		AB469D501E6834FA003856B3 /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
-		AB469D531E68371E003856B3 /* JSONable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
-		AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONableObjectMapper.swift; sourceTree = "<group>"; };
 		AB482E801E43A4010003E085 /* PeopleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailViewController.swift; sourceTree = "<group>"; };
 		AB482E841E43A4010003E085 /* PeopleDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDetailPresenter.swift; sourceTree = "<group>"; };
 		AB482E861E43A4010003E085 /* People.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 				AB9074421E7BDE82002C013F /* NetApi.swift */,
 				AB9074451E7BDF37002C013F /* NetSupport.swift */,
 				AB9074471E7BDF96002C013F /* RequestGenerator.swift */,
-				AB469D521E68371E003856B3 /* JSONable */,
 				AB2251171E4889F200EDA5D2 /* Transformable.swift */,
 				AB469D501E6834FA003856B3 /* Convertible.swift */,
 			);
@@ -342,15 +337,6 @@
 				AB9074521E7BFE01002C013F /* Params */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		AB469D521E68371E003856B3 /* JSONable */ = {
-			isa = PBXGroup;
-			children = (
-				AB469D531E68371E003856B3 /* JSONable.swift */,
-				AB469D541E68371E003856B3 /* JSONableObjectMapper.swift */,
-			);
-			path = JSONable;
 			sourceTree = "<group>";
 		};
 		AB469D5A1E684043003856B3 /* Transformers */ = {
@@ -1035,11 +1021,9 @@
 				AB44400D1E44953A00193697 /* Request.swift in Sources */,
 				AB9074461E7BDF37002C013F /* NetSupport.swift in Sources */,
 				AB4440241E449C2F00193697 /* People.swift in Sources */,
-				AB469D561E68371E003856B3 /* JSONableObjectMapper.swift in Sources */,
 				AB7F58221E4DC8DA00144DD6 /* HomeLocalizable.swift in Sources */,
 				AB9074541E7BFE8B002C013F /* ObjectTestNet.swift in Sources */,
 				AB90744B1E7BEFDE002C013F /* Photo.swift in Sources */,
-				AB469D551E68371E003856B3 /* JSONable.swift in Sources */,
 				AB22511D1E48A7DB00EDA5D2 /* DependencyProvider.swift in Sources */,
 				AB6597661E76F8DE004D2479 /* FormData.swift in Sources */,
 				AB4440281E449F4F00193697 /* PagePeopleNet.swift in Sources */,

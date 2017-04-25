@@ -11,12 +11,10 @@ import Foundation
 class NetSupport {
     let net: Net
     let api: Api
-    let jsonable: JSONable
 
-    init(net: Net, api: Api, jsonable: JSONable) {
+    init(net: Net, api: Api) {
         self.net = net
         self.api = api
-        self.jsonable = jsonable
     }
 
     func getRequestGenerator() -> RequestGenerator {
@@ -30,13 +28,8 @@ class NetSupport {
                  completion(nil, NetError.emptyResponse)
                 return
             }
-            do {
-                let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
-                completion(object, nil)
-            } catch {
-                completion(nil, NetError.mappingError)
-            }
-            
+            guard let object : T =  T.self.instance(response.message) else { completion(nil, NetError.mappingError); return }
+            completion(object, nil)
         })
     }
     
@@ -51,12 +44,8 @@ class NetSupport {
                 completion(nil, NetError.emptyResponse)
                 return
             }
-            do {
-                let object : T = try self.jsonable.transform(response.message, toStruct: T.self)
-                completion(object, nil)
-            } catch {
-                completion(nil, NetError.mappingError)
-            }
+            guard let object : T =  T.self.instance(response.message) else { completion(nil, NetError.mappingError); return }
+            completion(object, nil)
         })
     }
     

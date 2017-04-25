@@ -12,7 +12,7 @@ class DependencyProvider {
     
     static let net : Net = NetAlamoFire()
     
-    static let netSupport = NetSupport(net: DependencyProvider.net, api: Api(baseUrlDirectory: "http://swapi.co/api/"), jsonable: JSONableObjectMapper())
+    static let netSupport = NetSupport(net: DependencyProvider.net, api: Api(baseUrlDirectory: "http://swapi.co/api/"))
     
     static let people = PeopleEngine(netSupport: DependencyProvider.netSupport)
 
