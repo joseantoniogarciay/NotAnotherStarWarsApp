@@ -12,6 +12,9 @@ PODS:
     - Reusable/View (= 4.0.0)
   - Reusable/Storyboard (4.0.0)
   - Reusable/View (4.0.0)
+  - Swinject (2.0.0)
+  - SwinjectStoryboard (1.0.0):
+    - Swinject (= 2.0.0)
   - XCTest-Gherkin (0.9.0):
     - XCTest-Gherkin/Core (= 0.9.0)
   - XCTest-Gherkin/Core (0.9.0)
@@ -27,6 +30,8 @@ DEPENDENCIES:
   - ObjectMapper
   - ResponseDetective (~> 1.0)
   - Reusable
+  - Swinject
+  - SwinjectStoryboard
   - XCTest-Gherkin
   - XCTest-Gherkin/Native
 
@@ -39,8 +44,10 @@ SPEC CHECKSUMS:
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   ResponseDetective: ccdd99846c52290aecc6520aaa1e6c22fdf4998a
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
+  Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
+  SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
   XCTest-Gherkin: 1b4a3a1ee6e464f2223dea67fbea16bb58cf0c07
 
-PODFILE CHECKSUM: 9a830ed57f37a3fc13355cd33473beb6122cf53b
+PODFILE CHECKSUM: f595d45739493ab5541dae8e2b61764152fb1054
 
 COCOAPODS: 1.2.0.beta.3

@@ -9,7 +9,14 @@
 import UIKit
 import Kommander
 
-class PeopleInteractor {
+protocol PeopleInteractorProtocol {
+    func getPeople(completion: @escaping (([Person]?, Error?) -> Void)) -> Kommand<Int>
+    func getDetailTitle() -> Kommand<String>
+    func uploadPhotos(_ photos: [Photo], actualProgress:@escaping ((Double) -> Void), completion: @escaping ((Person?, Error?) -> Void)) -> Kommand<Int>
+    func cancelTask(identifier: Int)
+}
+
+class PeopleInteractor : PeopleInteractorProtocol {
     
     let kommander = Kommander()
     

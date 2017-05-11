@@ -9,8 +9,8 @@
 import UIKit
 
 protocol HomePresenterProtocol {
-    weak var homeVC : HomeViewProtocol? { get set }
-    init(homeVC : HomeViewProtocol)
+    weak var homeVC : HomeViewControllerProtocol? { get set }
+    init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?)
     func viewLoaded()
     func selectedPerson(_ person: Person)
 }
@@ -19,12 +19,13 @@ protocol HomePresenterProtocol {
 
 class HomePresenter : HomePresenterProtocol {
     
-    weak var homeVC : HomeViewProtocol?
-    var peopleInteractor = PeopleInteractor()
+    weak var homeVC : HomeViewControllerProtocol?
+    var peopleInteractor : PeopleInteractorProtocol?
     var pushingVC = false
     
-    required init(homeVC : HomeViewProtocol) {
-        self.homeVC = homeVC
+    required init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?) {
+        self.homeVC = homeViewController
+        self.peopleInteractor = peopleInteractor
     }
     
     func viewLoaded() {
@@ -33,7 +34,7 @@ class HomePresenter : HomePresenterProtocol {
     }
     
     func getPeople() {
-        _ = peopleInteractor.getPeople(completion: { [weak self] (arrayPerson, error) in
+        _ = peopleInteractor?.getPeople(completion: { [weak self] (arrayPerson, error) in
             if error == nil, let persons = arrayPerson {
                 self?.homeVC?.updatePeople(persons)
             } else {
@@ -69,7 +70,7 @@ class HomePresenter : HomePresenterProtocol {
     }
     
     func uploadPhotos(_ photos: [Photo]) {
-        _ = peopleInteractor.uploadPhotos(photos, actualProgress: { (progress) in
+        _ = peopleInteractor?.uploadPhotos(photos, actualProgress: { (progress) in
             
         }, completion: { (response, error) in
             if let err = error {
@@ -78,7 +79,7 @@ class HomePresenter : HomePresenterProtocol {
         })
         .onSuccess({ (identifier) in
             print(identifier)
-            self.peopleInteractor.cancelTask(identifier: identifier)
+            self.peopleInteractor?.cancelTask(identifier: identifier)
         })
         .onError({ (error) in
             let description = error?.localizedDescription ?? ""
@@ -97,16 +98,16 @@ extension HomePresenter {
         guard pushingVC == false else { return }
         pushingVC = true
         homeVC?.showLoadingForPerson(person, show: true)
-        let peopleDetailVC = PeopleDetailViewController.instantiate()
-        peopleDetailVC.person = person
-        _ = peopleInteractor.getDetailTitle()
-        .onSuccess({ [weak self] (title) in
-            peopleDetailVC.title = title
-            self?.homeVC?.showLoadingForPerson(person, show: false)
-            NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
-            self?.pushingVC = false
-        })
-        .execute()
+        if let peopleDetailVC = Container.shared.resolve(PeopleDetailViewController.self, argument: person) {
+            _ = peopleInteractor?.getDetailTitle()
+            .onSuccess({ [weak self] (title) in
+                peopleDetailVC.title = title
+                self?.homeVC?.showLoadingForPerson(person, show: false)
+                NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
+                self?.pushingVC = false
+            })
+            .execute()
+        }
     }
     
 }
