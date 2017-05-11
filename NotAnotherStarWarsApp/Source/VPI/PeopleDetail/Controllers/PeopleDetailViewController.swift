@@ -9,6 +9,10 @@
 import UIKit
 import Reusable
 
+protocol PeopleDetailViewControllerProtocol : class {
+    
+}
+
 class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     
     static var sceneStoryboard = UIStoryboard(name: AppStoryboard.People.rawValue, bundle: nil)
@@ -19,10 +23,6 @@ class PeopleDetailViewController: BaseViewController, StoryboardSceneBased {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewLoaded()
-    }
-    
-    override func dependencyInjection() {
-        presenter = PeopleDetailPresenter(peopleDetailVC: self)
     }
     
     override func configView() {

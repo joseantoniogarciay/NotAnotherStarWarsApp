@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol DependencyInjectionProtocol {
-    func dependencyInjection()
-}
-
-class BaseViewController: UIViewController, DependencyInjectionProtocol {
+class BaseViewController: UIViewController {
     
     override var navigationController: UINavigationController? {
         get { return nil } //Hard restriction
@@ -20,12 +16,7 @@ class BaseViewController: UIViewController, DependencyInjectionProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dependencyInjection()
         configView()
-    }
-    
-    func dependencyInjection() {
-        preconditionFailure("This method must be overridden")
     }
     
     func configView() {

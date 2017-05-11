@@ -9,7 +9,7 @@
 import UIKit
 import Reusable
 
-protocol HomeViewProtocol: class {
+protocol HomeViewControllerProtocol: class {
     func updatePeople(_ arrayPerson: [Person])
     func showLoadingForPerson(_ person: Person, show: Bool)
     func stopTableViewActivityIndicator()
@@ -30,10 +30,6 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
         presenter?.viewLoaded()
     }
     
-    override func dependencyInjection() {
-        presenter = HomePresenter(homeVC: self)
-    }
-    
     override func configView() {
         tableView.register(cellType: PersonTableViewCell.self)
         tableView.estimatedRowHeight = 44.0
@@ -48,8 +44,8 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
 }
 
 
-// MARK: HomeViewProtocol
-extension HomeViewController : HomeViewProtocol {
+// MARK: HomeViewControllerProtocol
+extension HomeViewController : HomeViewControllerProtocol {
     
     func updatePeople(_ arrayPerson: [Person]) {
         tableViewActivityIndicator.stopAnimating()

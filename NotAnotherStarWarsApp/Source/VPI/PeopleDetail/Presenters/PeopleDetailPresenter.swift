@@ -9,17 +9,16 @@
 import UIKit
 
 protocol PeopleDetailPresenterProtocol {
-    weak var peopleDetailVC: PeopleDetailViewController? { get set }
-    init(peopleDetailVC: PeopleDetailViewController)
+    weak var peopleDetailVC: PeopleDetailViewControllerProtocol? { get set }
+    init(_ peopleDetailVC: PeopleDetailViewControllerProtocol)
     func viewLoaded()
 }
 
 class PeopleDetailPresenter: PeopleDetailPresenterProtocol {
     
-    weak var peopleDetailVC : PeopleDetailViewController?
-    var peopleInteractor = PeopleInteractor()
+    weak var peopleDetailVC : PeopleDetailViewControllerProtocol?
     
-    required init(peopleDetailVC: PeopleDetailViewController) {
+    required init(_ peopleDetailVC: PeopleDetailViewControllerProtocol) {
         self.peopleDetailVC = peopleDetailVC
     }
     

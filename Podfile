@@ -12,6 +12,8 @@ target 'NotAnotherStarWarsApp' do
    pod 'Fabric'
    pod 'Crashlytics'
    pod 'NVActivityIndicatorView'
+   pod 'Swinject'
+   pod 'SwinjectStoryboard'
 end
 
 target 'NotAnotherStarWarsAppTests' do
