@@ -17,6 +17,8 @@ class PersonTableViewCell: UITableViewCell, NibReusable {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     
+    weak var personVM : PersonViewModel?
+    
     override func awakeFromNib() {
         activityIndicator.color = .black
         activityIndicator.type = .ballClipRotate
@@ -26,21 +28,30 @@ class PersonTableViewCell: UITableViewCell, NibReusable {
         activityIndicator.stopAnimating()
     }
     
-    func updateWithPerson(_ person: Person) {
-        nameLabel.text = person.name
-        if let mass = person.mass {
+    func updateWithPerson(_ personVM: PersonViewModel) {
+        self.personVM = personVM
+        nameLabel.text = personVM.person.name
+        if let mass = personVM.person.mass {
             massLabel.text = mass + " kg"
         }
-        if let height = person.height {
+        if let height = personVM.person.height {
             heightLabel.text = height + " cm"
+        }
+        
+        if personVM.loading {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
         }
     }
     
     func startLoading() {
+        personVM?.loading = true
         activityIndicator.startAnimating()
     }
     
     func stopLoading() {
+        personVM?.loading = false
         activityIndicator.stopAnimating()
     }
     
