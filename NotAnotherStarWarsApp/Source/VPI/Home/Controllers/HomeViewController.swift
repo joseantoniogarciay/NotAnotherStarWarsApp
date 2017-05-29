@@ -10,8 +10,8 @@ import UIKit
 import Reusable
 
 protocol HomeViewControllerProtocol: class {
-    func updatePeople(_ arrayPerson: [Person])
-    func showLoadingForPerson(_ person: Person, show: Bool)
+    func updatePeople(_ arrayPerson: [PersonViewModel])
+    func showLoadingForPerson(_ person: PersonViewModel, show: Bool)
     func stopTableViewActivityIndicator()
 }
 
@@ -20,7 +20,7 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
     
     static var sceneStoryboard = UIStoryboard(name: AppStoryboard.Home.rawValue, bundle: nil)
     var presenter : HomePresenterProtocol?
-    var arrayPerson : Array<Person>?
+    var arrayPerson : Array<PersonViewModel>?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
@@ -47,13 +47,13 @@ class HomeViewController: BaseViewController, StoryboardSceneBased {
 // MARK: HomeViewControllerProtocol
 extension HomeViewController : HomeViewControllerProtocol {
     
-    func updatePeople(_ arrayPerson: [Person]) {
+    func updatePeople(_ arrayPerson: [PersonViewModel]) {
         tableViewActivityIndicator.stopAnimating()
         self.arrayPerson = arrayPerson
         tableView.reloadData()
     }
     
-    func showLoadingForPerson(_ person: Person, show: Bool) {
+    func showLoadingForPerson(_ person: PersonViewModel, show: Bool) {
         if let index = arrayPerson?.index(of: person) {
             if let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PersonTableViewCell {
                 show ? cell.startLoading() : cell.stopLoading()
@@ -81,7 +81,11 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PersonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.updateWithPerson(arrayPerson![indexPath.item])
+        
+        if let person = arrayPerson?[indexPath.item] {
+            cell.updateWithPerson(person)
+        }
+        
         return cell
     }
     
@@ -97,7 +101,9 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.selectedPerson(arrayPerson![indexPath.item])
+        guard let arrayPerson = arrayPerson else { return }
+        
+        presenter?.selectedPerson(arrayPerson[indexPath.item])
     }
     
 }

@@ -12,7 +12,7 @@ protocol HomePresenterProtocol {
     weak var homeVC : HomeViewControllerProtocol? { get set }
     init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?)
     func viewLoaded()
-    func selectedPerson(_ person: Person)
+    func selectedPerson(_ person: PersonViewModel)
 }
 
 // MARK: HomePresenterProtocol
@@ -36,7 +36,7 @@ class HomePresenter : HomePresenterProtocol {
     func getPeople() {
         _ = peopleInteractor?.getPeople(completion: { [weak self] (arrayPerson, error) in
             if error == nil, let persons = arrayPerson {
-                self?.homeVC?.updatePeople(persons)
+                self?.homeVC?.updatePeople(persons.map { return PersonViewModel(person: $0) })
             } else {
                 self?.homeVC?.stopTableViewActivityIndicator()
             }
@@ -94,20 +94,29 @@ class HomePresenter : HomePresenterProtocol {
 
 extension HomePresenter {
     
-    func selectedPerson(_ person: Person) {
+    func selectedPerson(_ personVM: PersonViewModel) {
         guard pushingVC == false else { return }
         pushingVC = true
-        homeVC?.showLoadingForPerson(person, show: true)
-        if let peopleDetailVC = Container.shared.resolve(PeopleDetailViewController.self, argument: person) {
+        personVM.loading = true
+        homeVC?.showLoadingForPerson(personVM, show: true)
+        if let peopleDetailVC = Container.shared.resolve(PeopleDetailViewController.self, argument: personVM.person) {
             _ = peopleInteractor?.getDetailTitle()
             .onSuccess({ [weak self] (title) in
                 peopleDetailVC.title = title
-                self?.homeVC?.showLoadingForPerson(person, show: false)
                 NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
-                self?.pushingVC = false
+                self?.resetPushingForPerson(personVM)
+            })
+            .onError({[weak self]  _ in
+                self?.resetPushingForPerson(personVM)
             })
             .execute()
         }
+    }
+    
+    private func resetPushingForPerson(_ person: PersonViewModel) {
+        self.pushingVC = false
+        person.loading = false
+        homeVC?.showLoadingForPerson(person, show: false)
     }
     
 }
