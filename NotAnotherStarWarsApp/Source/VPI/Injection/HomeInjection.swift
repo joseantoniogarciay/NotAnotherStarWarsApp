@@ -14,13 +14,18 @@ class HomeInjection {
         
         let container = Container.shared
         
-        container.register(HomePresenterProtocol.self) { (r, homeViewController: HomeViewController, peopleInteractor: PeopleInteractorProtocol?) in
-            HomePresenter(homeViewController, peopleInteractor: peopleInteractor)
+        container.register(HomeRoutingProtocol.self) { _ in
+            HomeRouting()
+        }
+        
+        container.register(HomePresenterProtocol.self) { (r, homeViewController: HomeViewController, peopleInteractor: PeopleInteractorProtocol?, homeRouting: HomeRoutingProtocol?) in
+            HomePresenter(homeViewController, peopleInteractor: peopleInteractor, homeRouting: homeRouting)
         }
         
         container.storyboardInitCompleted(HomeViewController.self) { r, c in
             let peopleInteractor = r.resolve(PeopleInteractorProtocol.self)
-            let homePresenter = r.resolve(HomePresenterProtocol.self, arguments: c, peopleInteractor)
+            let homeRouting = r.resolve(HomeRoutingProtocol.self)
+            let homePresenter = r.resolve(HomePresenterProtocol.self, arguments: c, peopleInteractor, homeRouting)
             c.presenter = homePresenter
         }
 

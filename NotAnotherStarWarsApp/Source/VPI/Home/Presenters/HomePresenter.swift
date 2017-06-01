@@ -10,22 +10,24 @@ import UIKit
 
 protocol HomePresenterProtocol {
     weak var homeVC : HomeViewControllerProtocol? { get set }
-    init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?)
+    init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?, homeRouting: HomeRoutingProtocol?)
     func viewLoaded()
     func selectedPerson(_ person: PersonViewModel)
 }
 
 // MARK: HomePresenterProtocol
 
-class HomePresenter : HomePresenterProtocol {
+class HomePresenter: HomePresenterProtocol {
     
-    weak var homeVC : HomeViewControllerProtocol?
-    var peopleInteractor : PeopleInteractorProtocol?
+    weak var homeVC: HomeViewControllerProtocol?
+    var homeRouting: HomeRoutingProtocol?
+    var peopleInteractor: PeopleInteractorProtocol?
     var pushingVC = false
     
-    required init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?) {
+    required init(_ homeViewController: HomeViewControllerProtocol?, peopleInteractor: PeopleInteractorProtocol?, homeRouting: HomeRoutingProtocol?) {
         self.homeVC = homeViewController
         self.peopleInteractor = peopleInteractor
+        self.homeRouting = homeRouting
     }
     
     func viewLoaded() {
@@ -99,18 +101,16 @@ extension HomePresenter {
         pushingVC = true
         personVM.loading = true
         homeVC?.showLoadingForPerson(personVM, show: true)
-        if let peopleDetailVC = Container.shared.resolve(PeopleDetailViewController.self, argument: personVM.person) {
-            _ = peopleInteractor?.getDetailTitle()
+        
+        _ = peopleInteractor?.getDetailTitle()
             .onSuccess({ [weak self] (title) in
-                peopleDetailVC.title = title
-                NavigationManager.shared.pushVC(peopleDetailVC, animated: true)
+                self?.homeRouting?.detailSelectedForPerson(personVM.person, title: title)
                 self?.resetPushingForPerson(personVM)
             })
             .onError({[weak self]  _ in
                 self?.resetPushingForPerson(personVM)
             })
             .execute()
-        }
     }
     
     private func resetPushingForPerson(_ person: PersonViewModel) {
